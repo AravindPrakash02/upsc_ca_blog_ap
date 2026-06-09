@@ -1185,7 +1185,7 @@ function renderCA() {
         <div class="date-label-text${isToday(d)?' date-label-today':''}" style="font-weight: 500;">
           ${isToday(d)?'🟢 Today — ':''}${fmtDate(d)}
         </div>
-        <i class="ti ti-link date-share-btn" title="Copy link to share this date" onclick="event.stopPropagation(); copyDateLink('${d}')"></i>
+        <i class="ti ti-share-2 date-share-btn" title="Copy link to share this date" onclick="event.stopPropagation(); copyDateLink('${d}')"></i>
         <div class="date-sep" style="flex:1;"></div>
         <div style="font-size:0.7rem;color:var(--gold);background:var(--gold-dim);padding:2px 8px;border-radius:4px;border:1px solid var(--gold-border);white-space:nowrap">
           ${byDate[d].length} article${byDate[d].length>1?'s':''}
@@ -1481,7 +1481,7 @@ function openArticle(id) {
     <div class="article-modal-meta">
       <span>📅 ${fmtDate(item.date)}</span>
       <span style="color:var(--text3)">·</span>
-      <span style="cursor:pointer;color:var(--blue);font-weight:500" onclick="copyArticleLink('${item.id}')"><i class="ti ti-link"></i> Copy Link</span>
+      <span style="cursor:pointer;color:var(--blue);font-weight:500" onclick="copyArticleLink('${item.id}')"><i class="ti ti-share-2"></i> Copy Link</span>
       ${validLink ? `<span style="color:var(--text3)">·</span> <a href="${validLink}" target="_blank" style="color:var(--gold)">↗ Source</a>` : ''}
     </div>
     ${item.summary ? `<div class="article-section">
