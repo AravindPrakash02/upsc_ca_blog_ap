@@ -261,7 +261,7 @@ nav {
   padding-top:2rem;
   border-top:1px solid var(--border);
 }
-.hero-stat {}
+
 .hero-stat-num {
   font-family:'Cormorant Garamond',serif;
   font-size:2.2rem;
@@ -458,7 +458,7 @@ nav {
 .ca-meta-item { font-size:0.68rem;color:var(--text3);display:flex;align-items:center;gap:4px; }
 .ca-meta-item i { font-size:13px; }
 .ca-read-link {
-  margin-left:auto;font-size:0.7rem;color:var(--gold);
+  margin-left:auto;font-size:0.7rem;color:#d97a7a;
   display:flex;align-items:center;gap:3px;font-weight:500;
 }
 .ca-read-link i { font-size:12px; }
@@ -476,7 +476,7 @@ nav {
 .empty-state p { font-size:0.83rem; line-height:1.6; }
 
 /* ===== SIDEBAR ===== */
-.sidebar {}
+
 
 /* STREAK */
 .streak-card {
@@ -633,7 +633,7 @@ nav {
   text-decoration:none;
 }
 .mcq-row:hover { border-color:var(--border2); background:var(--bg3); }
-.mcq-row-info {}
+
 .mcq-row-title {
   font-size:0.82rem;
   color:var(--text);
@@ -1025,8 +1025,33 @@ footer {
 /* ====== CLOUD DATA VARIABLES ====== */
 let siteData = { ca: [], quiz: [], mcq: [], pdf: [] };
 
-function getData(k) { 
-  return siteData[k] || []; 
+function getData(k) {
+  return siteData[k] || [];
+}
+
+// LocalStorage migration — keep existing users working after key/name changes
+function migrateLocalStorage() {
+  try {
+    // common old keys that might exist from earlier versions
+    const possibleKeys = ['iap_ca', 'iap_ca_backup', 'iap_ca_old'];
+    for (const key of possibleKeys) {
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length && (!siteData.ca || !siteData.ca.length)) {
+            siteData.ca = parsed;
+            console.log('Migrated', key, '→ siteData.ca');
+            break;
+          }
+        } catch (e) {
+          // ignore parse errors
+        }
+      }
+    }
+  } catch (e) {
+    // ignore storage errors
+  }
 }
 function fmtDate(d) {
   if(!d) return '';
@@ -1074,7 +1099,33 @@ function renderCACard(i) {
   const impColor = i.importance==='high'?'var(--red)':i.importance==='medium'?'var(--gold)':'var(--green)';
   const impLabel = i.importance==='high'?'Must Read':i.importance==='medium'?'Important':'Good to Know';
   
-  return `<div class="ca-card" style="cursor:pointer;" onclick="openArticle('${i.id}')">
+  // Calculate content completeness for visual bar
+  let completeness = 0;
+  if(i.summary) completeness++;
+  if(i.keyPoints) completeness++;
+  if(i.whyInNews) completeness++;
+  if(i.upscAngle) completeness++;
+  const barColor = completeness === 4 ? 'var(--gold)' : completeness >= 2 ? 'rgba(201,168,76,0.7)' : 'rgba(201,168,76,0.4)';
+
+  // Smart source handling - text or hyperlink
+  let sourceHTML = '';
+  if(i.link && i.link.trim()) {
+    if(i.link.startsWith('http')) {
+      try {
+        const url = new URL(i.link);
+        const domain = url.hostname.replace('www.', '').split('.')[0];
+        const sourceNames = {thehindu:'The Hindu', indianexpress:'Indian Express', bbc:'BBC', reuters:'Reuters', pib:'PIB', indiatoday:'India Today'};
+        const displayName = sourceNames[domain] || domain.toUpperCase();
+        sourceHTML = `<a href="${i.link}" target="_blank" style="color:var(--green);text-decoration:none;font-weight:500;font-size:0.7rem" onclick="event.stopPropagation()">${displayName} ↗</a>`;
+      } catch(e) {
+        sourceHTML = `<span style="color:var(--text3);font-size:0.7rem;font-weight:500">${i.link}</span>`;
+      }
+    } else {
+      sourceHTML = `<span style="color:var(--text3);font-size:0.7rem;font-weight:500">${i.link}</span>`;
+    }
+  }
+
+  return `<div class="ca-card" style="cursor:pointer;border-left:5px solid ${barColor};" onclick="openArticle('${i.id}')">
     <div class="ca-card-top">
       <div class="imp-dot ${i.importance}"></div>
       <span class="topic-tag">${i.topic}</span>
@@ -1082,15 +1133,13 @@ function renderCACard(i) {
     </div>
     <h3 style="margin-bottom:0.85rem">${i.title}</h3>
     
-    <div style="font-size:0.75rem; color:var(--text3); display:flex; gap:10px; margin-bottom: 0.85rem;">
-      ${i.summary ? '<span style="color:var(--green)">✓ Summary</span>' : ''}
-      ${i.keyPoints ? '<span style="color:var(--blue)">✓ Key Points</span>' : ''}
-      ${i.upscAngle ? '<span style="color:#8b6fd4">✓ UPSC Angle</span>' : ''}
-    </div>
+    ${i.summary ? `<div style="font-size:0.82rem;color:var(--text2);line-height:1.6;margin-bottom:0.85rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${i.summary}</div>` : ''}
 
     <div class="ca-card-foot" style="border-top:1px solid var(--border); padding-top:0.85rem; margin-top:0;">
+      ${sourceHTML ? `<span style="margin-right:auto">${sourceHTML}</span>` : ''}
       <span class="ca-meta-item"><i class="ti ti-calendar"></i> ${fmtDateShort(i.date)}</span>
-      <span class="ca-read-link">Read Full Article →</span>
+      <span style="cursor:pointer;color:var(--text3);font-size:0.85rem;transition:color 0.2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'" onclick="event.stopPropagation(); copyArticleLink('${i.id}')" title="Share"><i class="ti ti-share-2" style="font-size:0.95rem"></i></span>
+      <span class="ca-read-link" style="color:#d97a7a">Read →</span>
     </div>
   </div>`;
 }
@@ -1158,18 +1207,32 @@ function toggleDateSection(dateStr) {
 }
 
 /* ====== SHARE LINK HELPERS ====== */
+function showToast(msg, isError = false) {
+  const toast = document.createElement('div');
+  toast.style.cssText = `position:fixed;bottom:20px;right:20px;background:${isError ? 'var(--red)' : 'var(--green)'};color:white;padding:10px 14px;border-radius:5px;font-size:0.75rem;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,0.25);opacity:0;transition:opacity 0.3s ease`;
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+  });
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    setTimeout(() => toast.remove(), 300);
+  }, 2000);
+}
+
 function copyDateLink(dateStr) {
   const url = window.location.origin + window.location.pathname + '?date=' + dateStr;
   navigator.clipboard.writeText(url).then(() => {
-    alert('Link copied! Anyone opening this link will see only articles from ' + fmtDateShort(dateStr));
-  });
+    showToast('Link copied — users opening it will see articles for ' + fmtDateShort(dateStr));
+  }).catch(() => showToast('Failed to copy link', true));
 }
 
 function copyArticleLink(id) {
   const url = window.location.origin + window.location.pathname + '?id=' + id;
   navigator.clipboard.writeText(url).then(() => {
-    alert('Direct article link copied to clipboard!');
-  });
+    showToast('Article link copied');
+  }).catch(() => showToast('Failed to copy link', true));
 }
 
 /* ====== MCQ SETS ====== */
@@ -1315,6 +1378,8 @@ async function loadLiveContent() {
   }
   
   // Once the data is downloaded, run the website setup!
+  // If backup.json wasn't present, try migrating any localStorage data into siteData
+  migrateLocalStorage();
   init(); 
 }
 
@@ -1412,7 +1477,7 @@ function openArticle(id) {
       <span style="margin-left:8px;font-size:0.65rem;color:${impColor}">${impLabel}</span>
     </div>
     <h1 class="article-modal-h1">${item.title}</h1>
-    ${item.imgUrl ? `<img src="${item.imgUrl}" style="width:100%;max-height:400px;object-fit:cover;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border)">` : ''}
+    ${item.imgUrl ? `<img src="${item.imgUrl}" style="width:100%;max-height:500px;object-fit:contain;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border)">` : ''}
     <div class="article-modal-meta">
       <span>📅 ${fmtDate(item.date)}</span>
       <span style="color:var(--text3)">·</span>
