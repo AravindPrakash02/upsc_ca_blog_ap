@@ -1022,7 +1022,12 @@ footer {
 
 <script>
 /* ====== HELPERS ====== */
-function getData(k) { try { return JSON.parse(localStorage.getItem('iap_'+k)||'[]'); } catch(e){ return []; } }
+/* ====== CLOUD DATA VARIABLES ====== */
+let siteData = { ca: [], quiz: [], mcq: [], pdf: [] };
+
+function getData(k) { 
+  return siteData[k] || []; 
+}
 function fmtDate(d) {
   if(!d) return '';
   const dt = new Date(d+'T00:00:00');
@@ -1290,7 +1295,31 @@ function init() {
   }
 }
 
-init();
+/* ====== FETCH LIVE DATA ====== */
+async function loadLiveContent() {
+  try {
+    // This fetches your exported file from GitHub's servers
+    const response = await fetch('backup.json'); 
+    if (response.ok) {
+      const data = await response.json();
+      // Safely load the arrays from your backup file
+      siteData.ca = data.ca || [];
+      siteData.quiz = data.quiz || [];
+      siteData.mcq = data.mcq || [];
+      siteData.pdf = data.pdf || [];
+    } else {
+      console.error("Could not find backup.json");
+    }
+  } catch (error) {
+    console.error("Error loading live data:", error);
+  }
+  
+  // Once the data is downloaded, run the website setup!
+  init(); 
+}
+
+// Start the website
+loadLiveContent();
 
 /* ====== ARCHIVE ====== */
 function showArchive() {
