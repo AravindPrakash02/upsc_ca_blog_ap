@@ -1412,6 +1412,7 @@ function openArticle(id) {
       <span style="margin-left:8px;font-size:0.65rem;color:${impColor}">${impLabel}</span>
     </div>
     <h1 class="article-modal-h1">${item.title}</h1>
+    ${item.imgUrl ? `<img src="${item.imgUrl}" style="width:100%;max-height:400px;object-fit:cover;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border)">` : ''}
     <div class="article-modal-meta">
       <span>📅 ${fmtDate(item.date)}</span>
       <span style="color:var(--text3)">·</span>
