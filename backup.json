@@ -1,0 +1,60 @@
+{
+  "ca": [
+    {
+      "id": "mq68ev3vbkt",
+      "date": "2026-06-10",
+      "topic": "Science & Tech",
+      "importance": "low",
+      "title": "Ethylene - anaesthetics",
+      "summary": "In 1926, the medical community introduced ethylene as a specialized anaesthetic agent, marking a significant advancement in surgical safety. This innovation provided a safer alternative for vulnerable patient populations, reducing systemic toxicity and post-operative complications compared to traditional anaesthetics of the era.",
+      "keyPoints": "• Ethylene was identified as an American-discovered anaesthetic agent with high clinical efficacy.\n• It served as a supplementary anaesthetic, specifically designed for cases where conventional methods posed risks of systemic poisoning.\n• The drug was particularly beneficial for patients at extreme ends of the life spectrum, as well as those suffering from diabetes or consumption (tuberculosis).\n• A primary advantage of ethylene was its ability to mitigate distressing post-operative side effects, improving patient recovery outcomes.\n• The successful demonstration at the Manchester Royal Infirmary validated its adoption for specialized medical procedures.",
+      "whyInNews": "This historical archive highlights a 1926 report from The Manchester Guardian regarding the introduction of ethylene as a breakthrough in anaesthesiology.",
+      "upscAngle": "GS Paper III (Science and Technology - Developments in Medical Science). Prelims: Focus on the history of anaesthetics and the evolution of surgical safety. Mains: Evolution of medical technology and its impact on public health policy. Key terms: Anaesthesia, systemic toxicity, clinical pharmacology, and medical history.",
+      "link": "",
+      "ts": 1780984878331
+    },
+    {
+      "id": "mq67nxw1oa7",
+      "date": "2026-06-09",
+      "topic": "Economy",
+      "importance": "medium",
+      "title": "India’s pension scheme lags in terms of coverage, contribution",
+      "summary": "The Indira Gandhi National Old Age Pension Scheme (IGNOAPS) is facing a critical crisis due to the stagnation of the central government's contribution at ₹200 since 2007, which has been severely eroded by inflation. This inadequacy in financial assistance, coupled with a stagnant beneficiary base despite a rising elderly population, highlights a significant gap in India's social security framework.",
+      "keyPoints": "• The central government's contribution to IGNOAPS remains fixed at ₹200 per month for the 60-plus age group, a figure unchanged since 2007.\n• Inflation has eroded the real value of the ₹200 assistance to approximately ₹99 in current terms, necessitating an increase to at least ₹353 to restore original purchasing power.\n• While the central contribution is stagnant, state governments have increasingly stepped in with top-up contributions, leading to significant regional disparities in pension amounts.\n• Data reveals a widening gap between the number of actual beneficiaries (approx. 2.2 crore) and the projected elderly population, indicating a failure to expand coverage in line with demographic shifts.\n• Surveys indicate that over 95% of beneficiaries cite rising costs of essential items as the primary reason for the inadequacy of the current pension amount.",
+      "whyInNews": "The issue has gained prominence following the 2025 Public Accounts Committee (PAC) report and an independent evaluation commissioned by the Ministry of Rural Development, both of which highlighted the urgent need for a revamp of the National Social Assistance Programme (NSAP).",
+      "upscAngle": "GS Paper II: Welfare schemes for vulnerable sections of the population and issues relating to poverty and hunger. Prelims: National Social Assistance Programme (NSAP), IGNOAPS eligibility criteria, and the role of the Ministry of Rural Development. Mains: Challenges in social security, fiscal federalism in welfare delivery, and the impact of inflation on social protection floors.",
+      "link": "",
+      "ts": 1780983622225
+    },
+    {
+      "id": "mq67lgft2wk",
+      "date": "2026-06-09",
+      "topic": "Polity",
+      "importance": "medium",
+      "title": "ICMR",
+      "summary": "The Indian Council of Medical Research (ICMR) is undergoing a strategic transformation to bridge the gap between biomedical research and grassroots healthcare delivery. By establishing a decentralized network of regional research institutes and launching the National Health Research Programme (NHRP), the ICMR aims to shift from project-based funding to solution-oriented public health outcomes.",
+      "keyPoints": "• ICMR is repositioning itself as the apex body for biomedical research by integrating research outputs directly into state and district health systems.\n• The establishment of a nationwide network of regional National Institutes of Health Research ensures localized operational research, spanning from Dibrugarh to Jodhpur.\n• The National Health Research Programme (NHRP) identifies 13 critical priority areas, including antimicrobial resistance, tuberculosis, mental health, and nutrition.\n• The initiative marks a paradigm shift from traditional project-based funding models to an integrated continuum focused on enabling actionable health solutions.\n• Decentralization of research infrastructure aims to address regional health disparities and improve the efficacy of public health interventions on the ground.",
+      "whyInNews": "The ICMR is in the news for its structural reorganization and the launch of the National Health Research Programme, aimed at aligning biomedical research with India's evolving public health requirements.",
+      "upscAngle": "GS Paper II (Health, Governance, Statutory Bodies). Prelims: Role of ICMR, NHRP objectives. Mains: Strengthening public health infrastructure, evidence-based policy making, and decentralized governance in healthcare. Key terms: Biomedical Research, Operational Research, Public Health Continuum.",
+      "link": "TH",
+      "ts": 1780983506297
+    },
+    {
+      "id": "mq66q5v6j9r",
+      "date": "2026-06-09",
+      "topic": "Environment",
+      "importance": "medium",
+      "title": "From borderland to India's strategic resource frontier",
+      "summary": "The Government of India is reframing the Northeast from a sensitive, security-focused borderland into a \"strategic resource frontier,\" driven by the need for critical minerals (lithium, cobalt, rare earth elements) essential for modern technologies and energy transitions.",
+      "keyPoints": "Key Shift: Northeast states are increasingly identified as \"quiet mineral frontiers\" and \"resource-rich frontiers.\"\n\nTarget Minerals: Lithium, cobalt, graphite, nickel, vanadium, chromium, and rare earth elements (REEs).\n\nApplications: Critical for industrial competition, technological manufacturing, energy transitions, batteries, semiconductors, renewable technologies, and defense systems.\n\nCurrent Status: India is heavily dependent on imports for these critical minerals.\n\nRecent Exploration Push: * Agency: Geological Survey of India (GSI).\n\nScope: Undertook 43 critical mineral exploration projects across Northeastern states (covering the 2022-23, 2023-24, and 2024-25 field seasons).\n\nStates Involved: Arunachal Pradesh, Meghalaya, Assam, Nagaland, and Manipur.\n\nSpecific Project (Manipur): Recent initiation of exploration for nickel, cobalt, and chromium.",
+      "whyInNews": "",
+      "upscAngle": "GS 3 Environment",
+      "link": "The Hindu",
+      "ts": 1780982046258
+    }
+  ],
+  "quiz": [],
+  "mcq": [],
+  "pdf": [],
+  "exported": "2026-06-09T06:20:27.690Z"
+}

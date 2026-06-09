@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAS Aspirants Parliament — Daily UPSC Preparation</title>
+<meta name="description" content="Daily current affairs, quizzes and MCQ practice for UPSC CSE aspirants. Updated every morning.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-dim: rgba(201,168,76,0.12);
+  --gold-border: rgba(201,168,76,0.3);
+  --bg: #0d1018;
+  --bg2: #13171f;
+  --bg3: #191d28;
+  --bg4: #1e2330;
+  --border: #252a38;
+  --border2: #2e3444;
+  --text: #eae6db;
+  --text2: #b0a898;
+  --text3: #6e6a60;
+  --red: #d45555;
+  --green: #4a9e72;
+  --blue: #4a7fc1;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+a { text-decoration:none; color:inherit; }
+img { display:block; }
+
+
+/* ===== SHARE LINKS & FILTERS ===== */
+.date-share-btn {
+  margin-left: 8px;
+  color: var(--text3);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+}
+.date-share-btn:hover { color: var(--gold); }
+
+.clear-date-filter {
+  font-size: 0.65rem;
+  color: var(--red);
+  background: rgba(212,85,85,0.1);
+  border: 1px solid rgba(212,85,85,0.3);
+  padding: 2px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+  font-family: 'DM Sans', sans-serif;
+}
+.clear-date-filter:hover { background: rgba(212,85,85,0.2); }
+
+/* ===== CLEAN ACCORDION TIMELINE ===== */
+.date-group {
+  margin-bottom: 0.75rem !important;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.date-group:hover {
+  border-color: var(--border2);
+}
+
+.date-label {
+  padding: 1rem 1.25rem !important;
+  margin-bottom: 0 !important;
+  background: var(--bg3) !important;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.date-toggle-icon {
+  font-size: 0.9rem;
+  color: var(--text3);
+  transition: transform 0.2s;
+}
+
+/* When the section is collapsed, hide the articles and rotate arrow */
+.date-group.collapsed .date-articles-wrapper {
+  display: none;
+}
+.date-group.collapsed .date-toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.date-articles-wrapper {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+
+/* Adjust card layout for inside the accordion */
+.date-articles-wrapper .ca-card {
+  margin-bottom: 0 !important;
+  background: var(--bg3);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+
+/* ===== NAV ===== */
+nav {
+  background:rgba(13,16,24,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 2.5rem;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.nav-logo {
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+.nav-logo-main {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--gold);
+  letter-spacing:0.5px;
+}
+.nav-logo-sub {
+  font-size:0.6rem;
+  color:var(--text3);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-top:1px;
+}
+.nav-links {
+  display:flex;
+  gap:0.25rem;
+}
+.nav-link {
+  font-size:0.78rem;
+  color:var(--text2);
+  padding:6px 14px;
+  border-radius:5px;
+  transition:all 0.2s;
+  font-weight:500;
+  letter-spacing:0.2px;
+}
+.nav-link:hover, .nav-link.active { color:var(--gold); background:var(--gold-dim); }
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.nav-date {
+  font-size:0.72rem;
+  color:var(--text3);
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:5px 12px;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.live-dot {
+  width:6px;
+  height:6px;
+  background:var(--green);
+  border-radius:50%;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* ===== HERO ===== */
+.hero {
+  background:var(--bg);
+  padding:3.5rem 2.5rem 3rem;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.hero-ring1 {
+  position:absolute;
+  width:500px;
+  height:500px;
+  border:1px solid rgba(201,168,76,0.06);
+  border-radius:50%;
+  top:-200px;
+  right:-150px;
+  pointer-events:none;
+}
+.hero-ring2 {
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(201,168,76,0.1);
+  border-radius:50%;
+  top:-100px;
+  right:-50px;
+  pointer-events:none;
+}
+.hero-inner {
+  max-width:1060px;
+  margin:0 auto;
+}
+.hero-eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.68rem;
+  color:var(--gold);
+  background:var(--gold-dim);
+  border:1px solid var(--gold-border);
+  padding:4px 12px;
+  border-radius:4px;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  margin-bottom:1.25rem;
+  font-weight:500;
+}
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;
+  font-weight:700;
+  color:var(--text);
+  line-height:1.1;
+  margin-bottom:1rem;
+  letter-spacing:-0.5px;
+}
+.hero h1 em {
+  color:var(--gold);
+  font-style:italic;
+}
+.hero-sub {
+  font-size:0.92rem;
+  color:var(--text2);
+  max-width:500px;
+  line-height:1.75;
+  margin-bottom:2.25rem;
+}
+.hero-stats {
+  display:flex;
+  gap:2.5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+}
+.hero-stat {}
+.hero-stat-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+}
+.hero-stat-label {
+  font-size:0.68rem;
+  color:var(--text3);
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+  margin-top:5px;
+}
+.hero-stat-divider {
+  width:1px;
+  background:var(--border);
+  align-self:stretch;
+}
+
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  padding:0 2.5rem;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  overflow-x:auto;
+  height:48px;
+}
+.filter-btn {
+  font-size:0.73rem;
+  color:var(--text2);
+  padding:5px 13px;
+  border-radius:4px;
+  border:1px solid transparent;
+  background:none;
+  cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  white-space:nowrap;
+  transition:all 0.2s;
+  font-weight:500;
+}
+.filter-btn:hover { color:var(--text); background:var(--bg3); }
+.filter-btn.active { color:var(--gold); background:var(--gold-dim); border-color:var(--gold-border); }
+
+/* ===== MAIN GRID ===== */
+.main-grid {
+  max-width:1060px;
+  margin:0 auto;
+  padding:2rem 2.5rem;
+  display:grid;
+  grid-template-columns:1fr 310px;
+  gap:2.5rem;
+}
+
+/* ===== SECTION HEADING ===== */
+.sec-head {
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  margin-bottom:1.5rem;
+}
+.sec-head h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--text);
+  white-space:nowrap;
+}
+.sec-line {
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.sec-tag {
+  font-size:0.65rem;
+  color:var(--gold);
+  background:var(--gold-dim);
+  border:1px solid var(--gold-border);
+  padding:2px 9px;
+  border-radius:3px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  white-space:nowrap;
+  font-weight:500;
+}
+.sec-count {
+  font-size:0.68rem;
+  color:var(--text3);
+  white-space:nowrap;
+}
+
+/* ===== DATE GROUP ===== */
+.date-group {
+  margin-bottom:2.5rem;
+}
+.date-label {
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  margin-bottom:1rem;
+}
+.date-label-text {
+  font-size:0.72rem;
+  color:var(--text2);
+  background:var(--bg3);
+  border:1px solid var(--border);
+  padding:4px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+  font-weight:500;
+}
+.date-label-today {
+  font-size:0.65rem;
+  color:var(--green);
+  background:rgba(74,158,114,0.12);
+  border-color:rgba(74,158,114,0.3);
+}
+.date-sep {
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+
+/* ===== CA CARD ===== */
+.ca-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1.4rem;
+  margin-bottom:0.85rem;
+  transition:border-color 0.2s, background 0.2s;
+  display:block;
+  position:relative;
+  overflow:hidden;
+}
+.ca-card::before {
+  content:'';
+  position:absolute;
+  left:0;top:0;bottom:0;width:3px;
+  background:var(--gold);opacity:0;transition:opacity 0.2s;
+}
+.ca-card:hover { border-color:var(--border2); background:var(--bg3); }
+.ca-card:hover::before { opacity:1; }
+.ca-card-top {
+  display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;
+}
+.imp-dot { width:7px;height:7px;border-radius:50%;flex-shrink:0; }
+.imp-dot.high { background:var(--red); box-shadow:0 0 0 2px rgba(212,85,85,0.2); }
+.imp-dot.medium { background:var(--gold); box-shadow:0 0 0 2px rgba(201,168,76,0.2); }
+.imp-dot.low { background:var(--green); box-shadow:0 0 0 2px rgba(74,158,114,0.2); }
+.topic-tag {
+  font-size:0.65rem;color:var(--gold);background:var(--gold-dim);
+  border:1px solid var(--gold-border);padding:2px 8px;border-radius:3px;
+  text-transform:uppercase;letter-spacing:0.4px;font-weight:500;
+}
+.ca-card h3 {
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
+  color:var(--text);line-height:1.4;margin-bottom:0.55rem;
+}
+.ca-card .ca-summary { font-size:0.83rem;color:var(--text2);line-height:1.75;margin-bottom:1rem; }
+/* Structured sections */
+.ca-section { margin-top:0.85rem; }
+.ca-section-title {
+  font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;
+  padding:2px 9px;border-radius:3px;display:inline-block;margin-bottom:0.5rem;
+}
+.ca-section-title.kp { background:rgba(74,127,193,0.1);color:#4a7fc1;border:1px solid rgba(74,127,193,0.3); }
+.ca-section-title.win { background:rgba(74,158,114,0.1);color:var(--green);border:1px solid rgba(74,158,114,0.3); }
+.ca-section-title.ua { background:rgba(139,111,212,0.1);color:#8b6fd4;border:1px solid rgba(139,111,212,0.3); }
+.ca-kp-list { list-style:none;display:flex;flex-direction:column;gap:4px; }
+.ca-kp-list li { font-size:0.79rem;color:var(--text2);padding-left:1rem;position:relative;line-height:1.6; }
+.ca-kp-list li::before { content:'→';position:absolute;left:0;color:var(--gold);font-size:0.65rem;top:2px; }
+.ca-win-text { font-size:0.79rem;color:var(--text2);line-height:1.7; }
+.ca-upsc-box {
+  font-size:0.78rem;color:#b5a4e8;line-height:1.7;
+  background:rgba(139,111,212,0.07);border:1px solid rgba(139,111,212,0.2);
+  border-radius:5px;padding:0.65rem 0.85rem;
+}
+.ca-expand-btn {
+  font-size:0.71rem;color:var(--gold);background:none;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;padding:0;display:flex;align-items:center;gap:4px;
+  margin-top:0.75rem;transition:opacity 0.2s;
+}
+.ca-expand-btn:hover { opacity:0.7; }
+.ca-expandable { display:none; }
+.ca-expandable.open { display:block; }
+.ca-card-foot {
+  display:flex;align-items:center;gap:1rem;
+  margin-top:1rem;padding-top:0.85rem;border-top:1px solid var(--border);
+}
+.ca-meta-item { font-size:0.68rem;color:var(--text3);display:flex;align-items:center;gap:4px; }
+.ca-meta-item i { font-size:13px; }
+.ca-read-link {
+  margin-left:auto;font-size:0.7rem;color:var(--gold);
+  display:flex;align-items:center;gap:3px;font-weight:500;
+}
+.ca-read-link i { font-size:12px; }
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  background:var(--bg2);
+  border:1px dashed var(--border2);
+  border-radius:10px;
+  padding:3rem;
+  text-align:center;
+  color:var(--text3);
+}
+.empty-state i { font-size:32px; color:var(--border2); margin-bottom:0.75rem; display:block; }
+.empty-state p { font-size:0.83rem; line-height:1.6; }
+
+/* ===== SIDEBAR ===== */
+.sidebar {}
+
+/* STREAK */
+.streak-card {
+  background:linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.04) 100%);
+  border:1px solid var(--gold-border);
+  border-radius:10px;
+  padding:1.1rem 1.25rem;
+  margin-bottom:1.75rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.streak-flame {
+  font-size:2rem;
+  line-height:1;
+  flex-shrink:0;
+}
+.streak-days {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+}
+.streak-info strong {
+  display:block;
+  font-size:0.85rem;
+  color:var(--text);
+  font-weight:500;
+  margin-bottom:2px;
+}
+.streak-info span { font-size:0.72rem; color:var(--text3); }
+
+/* QUIZ BOX */
+.quiz-box {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1.25rem;
+  margin-bottom:1.75rem;
+}
+.quiz-prog {
+  display:flex;
+  gap:4px;
+  margin-bottom:1rem;
+}
+.qp-dot {
+  height:3px;
+  flex:1;
+  border-radius:2px;
+  background:var(--border);
+  transition:background 0.3s;
+}
+.qp-dot.done { background:var(--gold); opacity:0.5; }
+.qp-dot.curr { background:var(--gold); }
+.quiz-question {
+  font-size:0.88rem;
+  color:var(--text);
+  line-height:1.65;
+  margin-bottom:1rem;
+  font-weight:400;
+}
+.quiz-topic-badge {
+  font-size:0.63rem;
+  color:var(--text3);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:0.75rem;
+}
+.quiz-opts {
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+  margin-bottom:0.85rem;
+}
+.qopt {
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:0.55rem 0.85rem;
+  font-size:0.79rem;
+  color:var(--text2);
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:'DM Sans',sans-serif;
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  text-align:left;
+  width:100%;
+}
+.qopt:hover { border-color:var(--border2); color:var(--text); background:var(--bg3); }
+.qopt.correct { border-color:var(--green); background:rgba(74,158,114,0.12); color:#6dd09b; pointer-events:none; }
+.qopt.wrong { border-color:var(--red); background:rgba(212,85,85,0.12); color:#f09090; pointer-events:none; }
+.qopt.reveal { border-color:rgba(74,158,114,0.25); background:rgba(74,158,114,0.05); color:var(--green); pointer-events:none; }
+.ql {
+  width:20px;
+  height:20px;
+  border-radius:3px;
+  background:var(--bg3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.65rem;
+  font-weight:600;
+  flex-shrink:0;
+  font-family:monospace;
+}
+.quiz-explain {
+  display:none;
+  font-size:0.76rem;
+  color:#7aae85;
+  background:rgba(74,158,114,0.08);
+  border:1px solid rgba(74,158,114,0.25);
+  border-radius:6px;
+  padding:0.75rem;
+  margin-bottom:0.75rem;
+  line-height:1.65;
+}
+.quiz-nav {
+  display:flex;
+  gap:0.5rem;
+}
+.qnav-btn {
+  flex:1;
+  border-radius:6px;
+  padding:0.5rem;
+  font-size:0.76rem;
+  cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  font-weight:500;
+  transition:all 0.2s;
+  border:none;
+}
+.qnav-btn.primary { background:var(--gold); color:#0d1018; }
+.qnav-btn.primary:hover { opacity:0.85; }
+.qnav-btn.ghost { background:var(--bg3); color:var(--text2); border:1px solid var(--border); }
+.qnav-btn.ghost:hover { border-color:var(--border2); color:var(--text); }
+.no-quiz { text-align:center; padding:1.5rem; color:var(--text3); font-size:0.8rem; line-height:1.6; }
+
+/* MCQ SETS */
+.mcq-row {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:7px;
+  padding:0.85rem 1rem;
+  margin-bottom:0.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:0.75rem;
+  cursor:pointer;
+  transition:all 0.2s;
+  text-decoration:none;
+}
+.mcq-row:hover { border-color:var(--border2); background:var(--bg3); }
+.mcq-row-info {}
+.mcq-row-title {
+  font-size:0.82rem;
+  color:var(--text);
+  font-weight:500;
+  margin-bottom:3px;
+}
+.mcq-row-meta {
+  font-size:0.68rem;
+  color:var(--text3);
+  display:flex;
+  gap:6px;
+}
+.mcq-badge {
+  font-size:0.65rem;
+  background:var(--gold-dim);
+  color:var(--gold);
+  border:1px solid var(--gold-border);
+  padding:2px 8px;
+  border-radius:3px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+/* PDF CARDS */
+.pdf-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:0.9rem 1rem;
+  margin-bottom:0.6rem;
+  display:flex;
+  align-items:center;
+  gap:0.85rem;
+  transition:border-color 0.2s;
+}
+.pdf-card:hover { border-color:var(--border2); }
+.pdf-icon {
+  width:36px;
+  height:36px;
+  background:var(--gold-dim);
+  border:1px solid var(--gold-border);
+  border-radius:7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-size:17px;
+  flex-shrink:0;
+}
+.pdf-info { flex:1; min-width:0; }
+.pdf-title {
+  font-size:0.83rem;
+  color:var(--text);
+  font-weight:500;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  margin-bottom:2px;
+}
+.pdf-meta { font-size:0.68rem; color:var(--text3); }
+.pdf-dl-btn {
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:5px;
+  padding:5px 11px;
+  font-size:0.72rem;
+  color:var(--gold);
+  cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  white-space:nowrap;
+  flex-shrink:0;
+  transition:all 0.2s;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.pdf-dl-btn:hover { background:var(--gold); color:var(--bg); border-color:var(--gold); }
+
+/* TOPIC CLOUD */
+.topic-cloud { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.tc-tag {
+  font-size:0.72rem;
+  padding:5px 11px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  color:var(--text2);
+  cursor:pointer;
+  transition:all 0.2s;
+  background:none;
+  font-family:'DM Sans',sans-serif;
+}
+.tc-tag:hover { border-color:var(--gold-border); color:var(--gold); background:var(--gold-dim); }
+
+/* FOOTER */
+footer {
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:2rem 2.5rem;
+  margin-top:3rem;
+}
+.footer-inner {
+  max-width:1060px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.footer-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--gold);
+}
+.footer-text { font-size:0.72rem; color:var(--text3); line-height:1.6; text-align:center; }
+.footer-link { font-size:0.72rem; color:var(--text3); }
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .main-grid { grid-template-columns:1fr; padding:1.5rem; }
+  .hero { padding:2rem 1.5rem; }
+  .hero h1 { font-size:2.2rem; }
+  .hero-stats { gap:1.5rem; flex-wrap:wrap; }
+  nav { padding:0 1rem; }
+  .nav-links { display:none; }
+  .filter-bar { padding:0 1rem; }
+  footer { padding:1.5rem; }
+  .footer-inner { flex-direction:column; gap:0.75rem; text-align:center; }
+}
+
+/* ===== 4-SECTION ARTICLE FORMAT ===== */
+.ca-section {
+  margin-top:1rem;
+  padding-top:1rem;
+  border-top:1px solid var(--border);
+}
+.ca-sec-label {
+  font-size:0.62rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+  margin-bottom:0.4rem;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:2px 8px;
+  border-radius:3px;
+}
+.ca-sec-summary { color:var(--text2); background:rgba(176,168,152,0.1); border:1px solid rgba(176,168,152,0.2); }
+.ca-sec-keypoints { color:var(--blue); background:rgba(74,127,193,0.1); border:1px solid rgba(74,127,193,0.25); }
+.ca-sec-why { color:var(--gold); background:var(--gold-dim); border:1px solid var(--gold-border); }
+.ca-sec-upsc { color:#8b6fd4; background:rgba(139,111,212,0.1); border:1px solid rgba(139,111,212,0.25); }
+.ca-sec-body {
+  font-size:0.83rem;
+  color:var(--text2);
+  line-height:1.75;
+  margin-top:0.3rem;
+}
+.ca-kp-list {
+  list-style:none;
+  margin-top:0.35rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.3rem;
+}
+.ca-kp-list li {
+  font-size:0.82rem;
+  color:var(--text2);
+  line-height:1.65;
+  padding-left:1.1rem;
+  position:relative;
+}
+.ca-kp-list li::before {
+  content:'›';
+  position:absolute;
+  left:0;
+  color:var(--blue);
+  font-weight:600;
+}
+
+
+/* ===== ARCHIVE / BLOG VIEW ===== */
+.archive-overlay{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;overflow-y:auto}
+.archive-overlay.open{display:block}
+.archive-nav{background:rgba(13,16,24,0.97);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 2rem;gap:1rem;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
+.archive-back{background:none;border:1px solid var(--border);border-radius:5px;padding:5px 12px;font-size:0.75rem;color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.archive-back:hover{border-color:var(--gold-border);color:var(--gold)}
+.archive-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);flex:1}
+.archive-wrap{max-width:900px;margin:0 auto;padding:2rem}
+.archive-month-head{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--text);margin-bottom:0.25rem}
+.archive-month-sub{font-size:0.72rem;color:var(--text3);margin-bottom:1.5rem}
+.archive-day-group{margin-bottom:2rem}
+.archive-day-label{font-size:0.72rem;color:var(--text2);background:var(--bg2);border:1px solid var(--border);padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:0.75rem;font-weight:500}
+.archive-day-label.today-lbl{color:var(--green);background:rgba(74,158,114,0.1);border-color:rgba(74,158,114,0.3)}
+.archive-article-row{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin-bottom:0.5rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:1rem}
+.archive-article-row:hover{border-color:var(--border2);background:var(--bg3)}
+.archive-article-info{flex:1;min-width:0}
+.archive-article-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4}
+.archive-article-meta{font-size:0.68rem;color:var(--text3);display:flex;gap:8px;align-items:center}
+.archive-imp{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.archive-imp.high{background:var(--red)}
+.archive-imp.medium{background:var(--gold)}
+.archive-imp.low{background:var(--green)}
+.month-sidebar{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:2rem}
+.month-chip{font-size:0.72rem;padding:4px 12px;border:1px solid var(--border);border-radius:20px;color:var(--text2);cursor:pointer;background:none;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.month-chip:hover{border-color:var(--gold-border);color:var(--gold)}
+.month-chip.active{background:var(--gold-dim);border-color:var(--gold-border);color:var(--gold)}
+
+/* ARTICLE MODAL */
+.article-modal{display:none;position:fixed;inset:0;background:rgba(13,16,24,0.97);z-index:300;overflow-y:auto}
+.article-modal.open{display:block}
+.article-modal-nav{background:rgba(13,16,24,0.97);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 2rem;gap:1rem;position:sticky;top:0;backdrop-filter:blur(10px)}
+.article-modal-body{max-width:720px;margin:0 auto;padding:2.5rem 2rem}
+.article-modal-topic{margin-bottom:1rem}
+.article-modal-h1{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1rem}
+.article-modal-meta{font-size:0.72rem;color:var(--text3);display:flex;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.article-section{margin-bottom:1.75rem}
+.article-sec-label{font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.7px;padding:3px 10px;border-radius:3px;display:inline-block;margin-bottom:0.75rem}
+.article-sec-label.s{color:var(--text2);background:rgba(176,168,152,0.1);border:1px solid rgba(176,168,152,0.2)}
+.article-sec-label.k{color:var(--blue);background:rgba(74,127,193,0.1);border:1px solid rgba(74,127,193,0.25)}
+.article-sec-label.w{color:var(--gold);background:var(--gold-dim);border:1px solid var(--gold-border)}
+.article-sec-label.u{color:#8b6fd4;background:rgba(139,111,212,0.1);border:1px solid rgba(139,111,212,0.25)}
+.article-sec-text{font-size:0.9rem;color:var(--text2);line-height:1.8}
+.article-kp-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.article-kp-list li{font-size:0.88rem;color:var(--text2);line-height:1.7;padding-left:1.25rem;position:relative}
+.article-kp-list li::before{content:'›';position:absolute;left:0;color:var(--blue);font-weight:700;font-size:1rem}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-main">IAS Aspirants Parliament</div>
+    <div class="nav-logo-sub">Daily UPSC Preparation</div>
+  </div>
+  <div class="nav-links">
+    <a href="#ca" class="nav-link active">Current Affairs</a>
+    <a href="#mcq" class="nav-link">MCQ Practice</a>
+    <a href="#downloads" class="nav-link">Downloads</a>
+    <a href="#" class="nav-link" onclick="showArchive();return false">Archive</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-date">
+      <div class="live-dot"></div>
+      <span id="navDate"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ring1"></div>
+  <div class="hero-ring2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="live-dot"></span>
+      Updated Daily — UPSC CSE 2025–26
+    </div>
+    <h1>Prepare Smarter,<br>Crack <em>UPSC</em> Faster</h1>
+    <p class="hero-sub">Daily current affairs, curated quizzes, and MCQ practice sets — everything a serious aspirant needs, in one place.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="statArticles">—</div>
+        <div class="hero-stat-label">Total Articles</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="statToday">—</div>
+        <div class="hero-stat-label">Added Today</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="statQuiz">—</div>
+        <div class="hero-stat-label">Quiz Questions</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="statPDFs">—</div>
+        <div class="hero-stat-label">PDFs Available</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="All" onclick="setFilter('All',this)">All Topics</button>
+  <button class="filter-btn" data-filter="Polity" onclick="setFilter('Polity',this)">Polity</button>
+  <button class="filter-btn" data-filter="Economy" onclick="setFilter('Economy',this)">Economy</button>
+  <button class="filter-btn" data-filter="Environment" onclick="setFilter('Environment',this)">Environment</button>
+  <button class="filter-btn" data-filter="Science & Tech" onclick="setFilter('Science & Tech',this)">Science & Tech</button>
+  <button class="filter-btn" data-filter="IR & Security" onclick="setFilter('IR & Security',this)">IR & Security</button>
+  <button class="filter-btn" data-filter="Geography" onclick="setFilter('Geography',this)">Geography</button>
+  <button class="filter-btn" data-filter="History & Art" onclick="setFilter('History & Art',this)">History & Art</button>
+  <button class="filter-btn" data-filter="Social Issues" onclick="setFilter('Social Issues',this)">Social Issues</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-grid">
+
+  <!-- LEFT: CA + MCQ + PDFs -->
+  <div>
+    <!-- CURRENT AFFAIRS -->
+    <div id="ca">
+      <div class="sec-head">
+        <h2>Current Affairs</h2>
+        <div class="sec-line"></div>
+        <div class="sec-tag" id="caSectionTag">Daily</div>
+      </div>
+      <div id="caFeed"></div>
+    </div>
+
+    <!-- MCQ SETS -->
+    <div id="mcq" style="margin-top:3rem">
+      <div class="sec-head">
+        <h2>MCQ Practice Sets</h2>
+        <div class="sec-line"></div>
+        <div class="sec-tag">Practice</div>
+      </div>
+      <div id="mcqFeed"></div>
+    </div>
+
+    <!-- PDFs -->
+    <div id="downloads" style="margin-top:3rem">
+      <div class="sec-head">
+        <h2>Monthly PDF Downloads</h2>
+        <div class="sec-line"></div>
+        <div class="sec-tag">Archive</div>
+      </div>
+      <div id="pdfFeed"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- STREAK -->
+    <div class="streak-card">
+      <div class="streak-flame">🔥</div>
+      <div>
+        <div class="streak-days" id="streakDays">1</div>
+        <div class="streak-info">
+          <strong>Day Streak!</strong>
+          <span>Keep visiting daily</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAILY QUIZ -->
+    <div class="sec-head">
+      <h2>Daily Quiz</h2>
+      <div class="sec-line"></div>
+      <div class="sec-tag" id="quizSideTag">Loading...</div>
+    </div>
+    <div class="quiz-box" id="quizBox"></div>
+
+    <!-- TOPIC CLOUD -->
+    <div class="sec-head" style="margin-top:1.5rem">
+      <h2>Browse Topics</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="topic-cloud">
+      <button class="tc-tag" onclick="setFilter('Polity',null)">Polity</button>
+      <button class="tc-tag" onclick="setFilter('Economy',null)">Economy</button>
+      <button class="tc-tag" onclick="setFilter('Environment',null)">Environment</button>
+      <button class="tc-tag" onclick="setFilter('Science & Tech',null)">Science & Tech</button>
+      <button class="tc-tag" onclick="setFilter('IR & Security',null)">IR & Security</button>
+      <button class="tc-tag" onclick="setFilter('Geography',null)">Geography</button>
+      <button class="tc-tag" onclick="setFilter('History & Art',null)">History & Art</button>
+      <button class="tc-tag" onclick="setFilter('Social Issues',null)">Social Issues</button>
+      <button class="tc-tag" onclick="setFilter('Agriculture',null)">Agriculture</button>
+      <button class="tc-tag" onclick="setFilter('Defence',null)">Defence</button>
+      <button class="tc-tag" onclick="setFilter('Health',null)">Health</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">IAS Aspirants Parliament</div>
+    <div class="footer-text">Curated daily for UPSC CSE aspirants.<br>Content updated every morning before 7 AM.</div>
+    <div class="footer-link">© <span id="footYear"></span> IAP</div>
+  </div>
+</footer>
+
+<script>
+/* ====== HELPERS ====== */
+function getData(k) { try { return JSON.parse(localStorage.getItem('iap_'+k)||'[]'); } catch(e){ return []; } }
+function fmtDate(d) {
+  if(!d) return '';
+  const dt = new Date(d+'T00:00:00');
+  return dt.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+function fmtDateShort(d) {
+  if(!d) return '';
+  const dt = new Date(d+'T00:00:00');
+  return dt.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+}
+function isToday(d) {
+  return d === new Date().toISOString().split('T')[0];
+}
+
+/* ====== STREAK ====== */
+function updateStreak() {
+  const today = new Date().toISOString().split('T')[0];
+  const stored = localStorage.getItem('iap_streak')||'{}';
+  let s; try { s = JSON.parse(stored); } catch(e){ s={}; }
+  if(s.last === today) { document.getElementById('streakDays').textContent = s.count||1; return; }
+  const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+  const yStr = yesterday.toISOString().split('T')[0];
+  const count = s.last === yStr ? (s.count||0)+1 : 1;
+  localStorage.setItem('iap_streak', JSON.stringify({last:today,count}));
+  document.getElementById('streakDays').textContent = count;
+}
+
+/* ====== FILTER & URL PARAMETERS ====== */
+let activeFilter = 'All';
+// Checks if the page was opened with a ?date= link
+let activeDateFilter = new URLSearchParams(window.location.search).get('date');
+
+function setFilter(f, btn) {
+  activeFilter = f;
+  activeDateFilter = null; // Clear date filter if user clicks a topic tab
+  window.history.pushState({}, document.title, window.location.pathname); // Clean the URL
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderCA();
+  if(f !== 'All') document.getElementById('ca').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderCACard(i) {
+  const impColor = i.importance==='high'?'var(--red)':i.importance==='medium'?'var(--gold)':'var(--green)';
+  const impLabel = i.importance==='high'?'Must Read':i.importance==='medium'?'Important':'Good to Know';
+  
+  return `<div class="ca-card" style="cursor:pointer;" onclick="openArticle('${i.id}')">
+    <div class="ca-card-top">
+      <div class="imp-dot ${i.importance}"></div>
+      <span class="topic-tag">${i.topic}</span>
+      <span style="font-size:0.65rem;color:${impColor};margin-left:auto">${impLabel}</span>
+    </div>
+    <h3 style="margin-bottom:0.85rem">${i.title}</h3>
+    
+    <div style="font-size:0.75rem; color:var(--text3); display:flex; gap:10px; margin-bottom: 0.85rem;">
+      ${i.summary ? '<span style="color:var(--green)">✓ Summary</span>' : ''}
+      ${i.keyPoints ? '<span style="color:var(--blue)">✓ Key Points</span>' : ''}
+      ${i.upscAngle ? '<span style="color:#8b6fd4">✓ UPSC Angle</span>' : ''}
+    </div>
+
+    <div class="ca-card-foot" style="border-top:1px solid var(--border); padding-top:0.85rem; margin-top:0;">
+      <span class="ca-meta-item"><i class="ti ti-calendar"></i> ${fmtDateShort(i.date)}</span>
+      <span class="ca-read-link">Read Full Article →</span>
+    </div>
+  </div>`;
+}
+
+/* ====== CURRENT AFFAIRS ====== */
+/* ====== CURRENT AFFAIRS (ACCORDION FORMAT) ====== */
+function renderCA() {
+  const all = getData('ca');
+  let filtered = all;
+
+  // Handle URL Date Filtering
+  if (activeDateFilter) {
+    filtered = all.filter(i => i.date === activeDateFilter);
+    document.getElementById('caSectionTag').innerHTML = `Date: ${fmtDateShort(activeDateFilter)} <a href="index.html" class="clear-date-filter">✕ Clear</a>`;
+  } else {
+    filtered = activeFilter === 'All' ? all : all.filter(i=>i.topic===activeFilter);
+    document.getElementById('caSectionTag').textContent = activeFilter === 'All' ? 'Daily' : activeFilter;
+  }
+
+  const el = document.getElementById('caFeed');
+  document.getElementById('statArticles').textContent = all.length;
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('statToday').textContent = all.filter(i=>i.date===today).length;
+
+  if(!filtered.length) {
+    el.innerHTML = `<div class="empty-state"><i class="ti ti-file-off"></i><p>No articles found.</p>${activeDateFilter ? '<a href="index.html" style="color:var(--gold);font-size:0.8rem;margin-top:10px;display:inline-block">← View All Dates</a>' : ''}</div>`;
+    return;
+  }
+
+  const byDate = {};
+  filtered.forEach(i=>{ if(!byDate[i.date]) byDate[i.date]=[]; byDate[i.date].push(i); });
+  const dates = Object.keys(byDate).sort((a,b)=>b.localeCompare(a));
+
+  el.innerHTML = dates.map((d, index) => {
+    // Keep only the very first date block open, collapse the older ones
+    // But if a user shared a specific date link, keep that open too!
+    const isCollapsed = (index > 0 && !activeDateFilter);
+    
+    return `
+    <div class="date-group ${isCollapsed ? 'collapsed' : ''}" id="group-${d}">
+      <div class="date-label" onclick="toggleDateSection('${d}')">
+        <i class="ti ti-chevron-down date-toggle-icon"></i>
+        <div class="date-label-text${isToday(d)?' date-label-today':''}" style="font-weight: 500;">
+          ${isToday(d)?'🟢 Today — ':''}${fmtDate(d)}
+        </div>
+        <i class="ti ti-link date-share-btn" title="Copy link to share this date" onclick="event.stopPropagation(); copyDateLink('${d}')"></i>
+        <div class="date-sep" style="flex:1;"></div>
+        <div style="font-size:0.7rem;color:var(--gold);background:var(--gold-dim);padding:2px 8px;border-radius:4px;border:1px solid var(--gold-border);white-space:nowrap">
+          ${byDate[d].length} article${byDate[d].length>1?'s':''}
+        </div>
+      </div>
+      <div class="date-articles-wrapper">
+        ${byDate[d].map(i=>renderCACard(i)).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* Toggle collapse/expand of a date section */
+function toggleDateSection(dateStr) {
+  const target = document.getElementById(`group-${dateStr}`);
+  if (target) {
+    target.classList.toggle('collapsed');
+  }
+}
+
+/* ====== SHARE LINK HELPERS ====== */
+function copyDateLink(dateStr) {
+  const url = window.location.origin + window.location.pathname + '?date=' + dateStr;
+  navigator.clipboard.writeText(url).then(() => {
+    alert('Link copied! Anyone opening this link will see only articles from ' + fmtDateShort(dateStr));
+  });
+}
+
+function copyArticleLink(id) {
+  const url = window.location.origin + window.location.pathname + '?id=' + id;
+  navigator.clipboard.writeText(url).then(() => {
+    alert('Direct article link copied to clipboard!');
+  });
+}
+
+/* ====== MCQ SETS ====== */
+function renderMCQ() {
+  const items = getData('mcq');
+  const el = document.getElementById('mcqFeed');
+  if(!items.length) {
+    el.innerHTML = `<div class="empty-state"><i class="ti ti-list-check"></i><p>MCQ sets will appear here.<br>Check back soon!</p></div>`;
+    return;
+  }
+  el.innerHTML = items.map(i=>`
+    <a class="mcq-row" href="${i.link}" target="_blank">
+      <div class="mcq-row-info">
+        <div class="mcq-row-title">${i.title}</div>
+        <div class="mcq-row-meta">
+          <span>${fmtDateShort(i.date)}</span>
+          <span>·</span>
+          <span>${i.topic}</span>
+        </div>
+      </div>
+      <span class="mcq-badge">${i.count} Qs</span>
+    </a>`).join('');
+}
+
+/* ====== PDFs ====== */
+function renderPDFs() {
+  const items = getData('pdf');
+  const el = document.getElementById('pdfFeed');
+  document.getElementById('statPDFs').textContent = items.length;
+  if(!items.length) {
+    el.innerHTML = `<div class="empty-state"><i class="ti ti-file-type-pdf"></i><p>Monthly PDF compilations will appear here.</p></div>`;
+    return;
+  }
+  el.innerHTML = items.map(i=>`
+    <div class="pdf-card">
+      <div class="pdf-icon"><i class="ti ti-file-type-pdf"></i></div>
+      <div class="pdf-info">
+        <div class="pdf-title">${i.title}</div>
+        <div class="pdf-meta">${i.month} ${i.year}${i.pages?' · '+i.pages+' pages':''}${i.size?' · '+i.size:''} · ${i.type}</div>
+      </div>
+      <button class="pdf-dl-btn" onclick="window.open('${i.link}','_blank')"><i class="ti ti-download"></i> Download</button>
+    </div>`).join('');
+}
+
+/* ====== QUIZ ====== */
+let quizIdx = 0, quizAnswered = false, todayQuestions = [];
+
+function renderQuiz() {
+  const today = new Date().toISOString().split('T')[0];
+  const all = getData('quiz');
+  todayQuestions = all.filter(i=>i.date===today);
+  const box = document.getElementById('quizBox');
+  const sideTag = document.getElementById('quizSideTag');
+  document.getElementById('statQuiz').textContent = all.length;
+
+  if(!todayQuestions.length) {
+    sideTag.textContent = 'Coming Soon';
+    box.innerHTML = `<div class="no-quiz"><i class="ti ti-clock" style="font-size:28px;color:var(--border2);display:block;margin:0 auto 0.75rem"></i>Today's quiz will be published soon.<br>Check back after 7 AM.</div>`;
+    return;
+  }
+  sideTag.textContent = todayQuestions.length + ' Qs';
+  quizIdx = 0;
+  loadQuizQuestion();
+}
+
+function loadQuizQuestion() {
+  quizAnswered = false;
+  const box = document.getElementById('quizBox');
+  if(quizIdx >= todayQuestions.length) {
+    box.innerHTML = `<div style="text-align:center;padding:2rem">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);margin-bottom:0.5rem">Quiz Complete! 🎉</div>
+      <div style="font-size:0.8rem;color:var(--text3);line-height:1.7">Great effort! Come back<br>tomorrow for a fresh set.</div>
+    </div>`;
+    return;
+  }
+  const q = todayQuestions[quizIdx];
+  const letters = ['A','B','C','D'];
+  const dots = todayQuestions.map((_,i)=>`<div class="qp-dot${i<quizIdx?' done':i===quizIdx?' curr':''}"></div>`).join('');
+  box.innerHTML = `
+    <div class="quiz-prog">${dots}</div>
+    <div class="quiz-topic-badge">${q.topic} · Q${quizIdx+1} of ${todayQuestions.length}</div>
+    <div class="quiz-question">${q.q}</div>
+    <div class="quiz-opts" id="qOpts">
+      ${q.opts.map((o,i)=>`<button class="qopt" onclick="answerQuiz(${i})"><span class="ql">${letters[i]}</span>${o}</button>`).join('')}
+    </div>
+    <div class="quiz-explain" id="qExp">💡 ${q.exp}</div>
+    <div class="quiz-nav">
+      <button class="qnav-btn ghost" id="qSkip" onclick="nextQuiz()">Skip</button>
+      <button class="qnav-btn primary" id="qNext" style="display:none" onclick="nextQuiz()">Next →</button>
+    </div>`;
+}
+
+function answerQuiz(i) {
+  if(quizAnswered) return;
+  quizAnswered = true;
+  const q = todayQuestions[quizIdx];
+  document.querySelectorAll('.qopt').forEach((b,idx)=>{
+    if(idx===q.ans) b.classList.add('correct');
+    else if(idx===i) b.classList.add('wrong');
+    else b.classList.add('reveal');
+  });
+  document.getElementById('qExp').style.display = 'block';
+  document.getElementById('qSkip').style.display = 'none';
+  document.getElementById('qNext').style.display = '';
+}
+
+function nextQuiz() { quizIdx++; loadQuizQuestion(); }
+
+/* ====== INIT ====== */
+function init() {
+  const today = new Date();
+  document.getElementById('navDate').textContent = today.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  document.getElementById('footYear').textContent = today.getFullYear();
+  updateStreak();
+  renderCA();
+  renderMCQ();
+  renderPDFs();
+  renderQuiz();
+  // Check if a specific article was shared via URL
+  const urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.has('id')) {
+    setTimeout(() => openArticle(urlParams.get('id')), 300);
+  }
+}
+
+init();
+
+/* ====== ARCHIVE ====== */
+function showArchive() {
+  renderArchive(null)
+  document.getElementById('archiveOverlay').classList.add('open')
+  document.body.style.overflow = 'hidden'
+}
+function closeArchive() {
+  document.getElementById('archiveOverlay').classList.remove('open')
+  document.body.style.overflow = ''
+}
+
+function renderArchive(filterMonth) {
+  const all = getData('ca').sort((a,b)=>b.date.localeCompare(a.date))
+  // Build month list
+  const months = {}
+  all.forEach(i => {
+    const [y,m] = i.date.split('-')
+    const key = y+'-'+m
+    const label = new Date(y,parseInt(m)-1,1).toLocaleString('en-IN',{month:'long',year:'numeric'})
+    if(!months[key]) months[key]={label,key,count:0}
+    months[key].count++
+  })
+  const monthKeys = Object.keys(months).sort((a,b)=>b.localeCompare(a))
+  const activeMonth = filterMonth || monthKeys[0] || null
+
+  // Month chips
+  document.getElementById('archiveMonthBar').innerHTML = monthKeys.map(k=>`
+    <button class="month-chip${k===activeMonth?' active':''}" onclick="renderArchive('${k}')">${months[k].label} <span style="opacity:0.6">(${months[k].count})</span></button>`).join('')
+
+  // Filter articles
+  const filtered = activeMonth ? all.filter(i=>i.date.startsWith(activeMonth.replace('-','-'))) : all
+  if(!filtered.length) {
+    document.getElementById('archiveContent').innerHTML = '<div style="color:var(--text3);padding:2rem;text-align:center">No articles for this month yet.</div>'
+    return
+  }
+
+  // Group by day
+  const byDay = {}
+  filtered.forEach(i=>{ if(!byDay[i.date]) byDay[i.date]=[]; byDay[i.date].push(i) })
+  const days = Object.keys(byDay).sort((a,b)=>b.localeCompare(a))
+  const todayStr = new Date().toISOString().split('T')[0]
+
+  const monthLabel = activeMonth ? months[activeMonth]?.label : ''
+  document.getElementById('archiveContent').innerHTML = `
+    <div class="archive-month-head">${monthLabel}</div>
+    <div class="archive-month-sub">${filtered.length} article${filtered.length>1?'s':''}</div>
+    ${days.map(d=>`
+      <div class="archive-day-group">
+        <div class="archive-day-label${d===todayStr?' today-lbl':''}">${d===todayStr?'🟢 Today — ':''}${fmtDate(d)}</div>
+        ${byDay[d].map(i=>`
+          <div class="archive-article-row" onclick="openArticle('${i.id}')">
+            <div class="archive-imp ${i.importance}"></div>
+            <div class="archive-article-info">
+              <div class="archive-article-title">${i.title}</div>
+              <div class="archive-article-meta">
+                <span style="background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.25);padding:1px 7px;border-radius:3px;font-size:0.62rem">${i.topic}</span>
+                ${i.summary?'<span style="color:var(--green)">✓ Summary</span>':''}
+                ${i.keyPoints?'<span style="color:var(--blue)">✓ Key Points</span>':''}
+                ${i.upscAngle?'<span style="color:#8b6fd4">✓ UPSC Angle</span>':''}
+              </div>
+            </div>
+            <span style="font-size:0.7rem;color:var(--gold);white-space:nowrap">Read →</span>
+          </div>`).join('')}
+      </div>`).join('')}`
+}
+
+function openArticle(id) {
+  const all = getData('ca')
+  const item = all.find(i=>i.id===id)
+  if(!item) return
+  
+  const impColor = item.importance==='high'?'var(--red)':item.importance==='medium'?'var(--gold)':'var(--green)'
+  const impLabel = item.importance==='high'?'Must Read':item.importance==='medium'?'Important':'Good to Know'
+  const kpLines = item.keyPoints ? item.keyPoints.split('\n').filter(l=>l.trim()).map(l=>l.replace(/^[•\-]\s*/,'')) : []
+  const fromArchive = document.getElementById('archiveOverlay').classList.contains('open')
+
+  document.getElementById('articleBackBtn').onclick = (e) => {
+    e.stopPropagation();
+    document.getElementById('articleModal').classList.remove('open')
+    document.body.style.overflow = fromArchive ? 'hidden' : ''
+  }
+
+  // Prevent 404: Only show source if a valid web link was provided
+  const validLink = (item.link && item.link.trim().startsWith('http')) ? item.link.trim() : null;
+
+  document.getElementById('articleModalBody').innerHTML = `
+    <div class="article-modal-topic">
+      <span style="font-size:0.65rem;padding:3px 10px;border-radius:3px;background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.3);text-transform:uppercase;letter-spacing:0.5px;font-weight:600">${item.topic}</span>
+      <span style="margin-left:8px;font-size:0.65rem;color:${impColor}">${impLabel}</span>
+    </div>
+    <h1 class="article-modal-h1">${item.title}</h1>
+    <div class="article-modal-meta">
+      <span>📅 ${fmtDate(item.date)}</span>
+      <span style="color:var(--text3)">·</span>
+      <span style="cursor:pointer;color:var(--blue);font-weight:500" onclick="copyArticleLink('${item.id}')"><i class="ti ti-link"></i> Copy Link</span>
+      ${validLink ? `<span style="color:var(--text3)">·</span> <a href="${validLink}" target="_blank" style="color:var(--gold)">↗ Source</a>` : ''}
+    </div>
+    ${item.summary ? `<div class="article-section">
+      <div class="article-sec-label s">Summary</div>
+      <div class="article-sec-text">${item.summary}</div>
+    </div>` : ''}
+    ${kpLines.length ? `<div class="article-section">
+      <div class="article-sec-label k">Key Points</div>
+      <ul class="article-kp-list">${kpLines.map(p=>`<li>${p}</li>`).join('')}</ul>
+    </div>` : ''}
+    ${item.whyInNews ? `<div class="article-section">
+      <div class="article-sec-label w">Why in News</div>
+      <div class="article-sec-text">${item.whyInNews}</div>
+    </div>` : ''}
+    ${item.upscAngle ? `<div class="article-section">
+      <div class="article-sec-label u">UPSC Angle</div>
+      <div class="article-sec-text">${item.upscAngle}</div>
+    </div>` : ''}
+  `
+  
+  document.getElementById('articleModal').classList.add('open')
+  document.body.style.overflow = 'hidden' // Stops background scrolling while reading
+}
+
+</script>
+
+<!-- ARCHIVE OVERLAY -->
+<div class="archive-overlay" id="archiveOverlay">
+  <div class="archive-nav">
+    <button class="archive-back" onclick="closeArchive()">← Back</button>
+    <div class="archive-title">📅 Content Archive</div>
+  </div>
+  <div class="archive-wrap">
+    <div class="month-sidebar" id="archiveMonthBar"></div>
+    <div id="archiveContent"></div>
+  </div>
+</div>
+
+<!-- ARTICLE FULL VIEW MODAL -->
+<div class="article-modal" id="articleModal">
+  <div class="article-modal-nav">
+    <button class="archive-back" id="articleBackBtn">← Back</button>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text3)">IAS Aspirants Parliament</div>
+  </div>
+  <div class="article-modal-body" id="articleModalBody"></div>
+</div>
+
+</body>
+</html>
