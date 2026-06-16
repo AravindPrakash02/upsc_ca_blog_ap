@@ -608,13 +608,17 @@ function renderCACard(i) {
   if(i.summary)completeness++;if(i.keyPoints)completeness++;if(i.whyInNews)completeness++;if(i.upscAngle)completeness++;
   const barColor=completeness===4?'var(--gold)':completeness>=2?'rgba(201,168,76,0.7)':'rgba(201,168,76,0.4)';
   let sourceHTML='';
-  if(i.link&&i.link.trim()&&i.link.startsWith('http')) {
-    try {
-      const url=new URL(i.link);
-      const domain=url.hostname.replace('www.','').split('.')[0];
-      const srcNames={thehindu:'The Hindu',indianexpress:'Indian Express',bbc:'BBC',reuters:'Reuters',pib:'PIB',indiatoday:'India Today'};
-      sourceHTML=`<a href="${i.link}" target="_blank" style="color:var(--green);text-decoration:none;font-weight:500;font-size:0.7rem" onclick="event.stopPropagation()">${srcNames[domain]||domain.toUpperCase()} ↗</a>`;
-    } catch(e) { sourceHTML=`<span style="color:var(--text3);font-size:0.7rem">${i.link}</span>`; }
+  if(i.link&&i.link.trim()){
+    const lnk=i.link.trim();
+    if(lnk.startsWith('http')){
+      try{
+        const url=new URL(lnk);const domain=url.hostname.replace('www.','').split('.')[0];
+        const srcNames={thehindu:'The Hindu',indianexpress:'Indian Express',bbc:'BBC',reuters:'Reuters',pib:'PIB',indiatoday:'India Today',hindustantimes:'Hindustan Times',livemint:'Mint',economictimes:'Economic Times'};
+        sourceHTML=`<a href="${lnk}" target="_blank" style="color:var(--green);text-decoration:none;font-weight:500;font-size:0.7rem" onclick="event.stopPropagation()">${srcNames[domain]||domain.toUpperCase()} ↗</a>`;
+      }catch(e){sourceHTML=`<span style="font-size:0.7rem;color:var(--text2)">${lnk}</span>`;}
+    } else {
+      sourceHTML=`<span style="font-size:0.7rem;color:var(--text2);font-weight:500">${lnk}</span>`;
+    }
   }
   const cardImg = i.imgUrls && i.imgUrls.length ? i.imgUrls[0] : (i.imgUrl || '');
   return `<div class="ca-card" style="cursor:pointer;border-left:5px solid ${barColor};" onclick="openArticle('${i.id}')">
@@ -684,7 +688,10 @@ function openArticle(id) {
   if(!item) return;
   const impColor=item.importance==='high'?'var(--red)':item.importance==='medium'?'var(--gold)':'var(--green)';
   const impLabel=item.importance==='high'?'Must Read':item.importance==='medium'?'Important':'Good to Know';
-  const validLink=(item.link&&item.link.trim().startsWith('http'))?item.link.trim():null;
+  const lnk = item.link && item.link.trim() ? item.link.trim() : null;
+  const sourceTag = !lnk ? '' : lnk.startsWith('http')
+    ? `<span style="color:var(--text3)">·</span> <a href="${lnk}" target="_blank" style="color:var(--gold);font-weight:500">↗ Source</a>`
+    : `<span style="color:var(--text3)">·</span> <span style="color:var(--text2);font-size:0.72rem">📰 ${lnk}</span>`;
 
   history.pushState({articleModal:true,id},'',location.href.split('?')[0]+'?id='+id);
   document.getElementById('articleBackBtn').onclick=(e)=>{ e.stopPropagation(); history.back(); };
@@ -750,7 +757,7 @@ function openArticle(id) {
       <span>📅 ${fmtDate(item.date)}</span>
       <span style="color:var(--text3)">·</span>
       <span style="cursor:pointer;color:var(--blue);font-weight:500" onclick="copyArticleLink('${item.id}')"><i class="ti ti-share-2"></i> Copy Link</span>
-      ${validLink?`<span style="color:var(--text3)">·</span> <a href="${validLink}" target="_blank" style="color:var(--gold)">↗ Source</a>`:''}
+      ${sourceTag}
     </div>
     ${sectionsHTML}`;
   document.getElementById('articleModal').classList.add('open');
