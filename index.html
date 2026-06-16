@@ -229,23 +229,62 @@ nav{
 .pq-separator{height:1px;background:var(--border);margin:1.25rem 0}
 
 /* ── ARTICLE MODAL ── */
-.article-modal{display:none;position:fixed;inset:0;background:rgba(6,8,15,0.98);z-index:400;overflow-y:auto}
+.article-modal{display:none;position:fixed;inset:0;background:#09090f;z-index:400;overflow-y:auto}
 .article-modal.open{display:block}
-.article-modal-nav{background:rgba(6,8,15,0.97);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 2rem;gap:1rem;position:sticky;top:0;backdrop-filter:blur(20px);z-index:10}
-.article-modal-body{max-width:720px;margin:0 auto;padding:2.5rem 2rem}
+.article-modal-nav{background:rgba(9,9,15,0.97);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 2rem;gap:1rem;position:sticky;top:0;backdrop-filter:blur(20px);z-index:10}
+.article-modal-body{max-width:740px;margin:0 auto;padding:3rem 2rem 5rem}
 .article-modal-topic{margin-bottom:1rem}
-.article-modal-h1{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1rem}
-.article-modal-meta{font-size:0.72rem;color:var(--text3);display:flex;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-.article-section{margin-bottom:1.75rem}
-.article-sec-label{font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.7px;padding:3px 10px;border-radius:3px;display:inline-block;margin-bottom:0.75rem}
-.article-sec-label.s{color:var(--text2);background:rgba(176,168,152,0.1);border:1px solid rgba(176,168,152,0.2)}
-.article-sec-label.k{color:var(--blue);background:rgba(74,127,193,0.1);border:1px solid rgba(74,127,193,0.25)}
-.article-sec-label.w{color:var(--gold);background:var(--gold-dim);border:1px solid var(--gold-b)}
-.article-sec-label.u{color:var(--purple);background:rgba(139,111,212,0.1);border:1px solid rgba(139,111,212,0.25)}
-.article-sec-text{font-size:0.9rem;color:var(--text2);line-height:1.8}
-.article-kp-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.article-kp-list li{font-size:0.88rem;color:var(--text2);line-height:1.7;padding-left:1.25rem;position:relative}
-.article-kp-list li::before{content:'›';position:absolute;left:0;color:var(--blue);font-weight:700;font-size:1rem}
+.article-modal-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.1rem;font-weight:700;
+  color:#f0ebe0;
+  line-height:1.2;margin-bottom:1rem;letter-spacing:-0.3px;
+}
+.article-modal-meta{font-size:0.72rem;color:var(--text3);display:flex;gap:1rem;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+
+/* Section wrapper */
+.article-section{margin-bottom:2rem}
+
+/* Section label pills — distinct per type */
+.article-sec-label{
+  font-size:0.58rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;padding:4px 11px;border-radius:4px;
+  display:inline-block;margin-bottom:0.85rem;
+}
+.article-sec-label.s {color:#c9a84c;background:rgba(201,168,76,0.09);border:1px solid rgba(201,168,76,0.22)}
+.article-sec-label.k {color:#7ab3e0;background:rgba(74,127,193,0.09);border:1px solid rgba(74,127,193,0.22)}
+.article-sec-label.w {color:#a8d4a8;background:rgba(74,158,114,0.09);border:1px solid rgba(74,158,114,0.22)}
+.article-sec-label.u {color:#b8a0e0;background:rgba(139,111,212,0.09);border:1px solid rgba(139,111,212,0.22)}
+.article-sec-label.bg{color:#e0b8a0;background:rgba(212,130,85,0.09);border:1px solid rgba(212,130,85,0.22)}
+.article-sec-label.cf{color:#a0c8e0;background:rgba(74,160,193,0.09);border:1px solid rgba(74,160,193,0.22)}
+.article-sec-label.st{color:#a0e0c0;background:rgba(74,193,140,0.09);border:1px solid rgba(74,193,140,0.22)}
+.article-sec-label.wf{color:#e0d0a0;background:rgba(193,170,74,0.09);border:1px solid rgba(193,170,74,0.22)}
+
+/* Body text — comfortable reading */
+.article-sec-text{
+  font-size:0.95rem;
+  color:#c8c0b0;
+  line-height:1.9;
+  letter-spacing:0.01em;
+}
+.article-sec-text b,.article-sec-text strong{
+  color:#e8e0d0;font-weight:600;
+}
+
+/* Key points list */
+.article-kp-list{list-style:none;display:flex;flex-direction:column;gap:0.65rem}
+.article-kp-list li{
+  font-size:0.92rem;color:#c0b8a8;
+  line-height:1.8;
+  padding:0.6rem 0.9rem 0.6rem 1.1rem;
+  position:relative;
+  border-left:2px solid rgba(201,168,76,0.25);
+  background:rgba(255,255,255,0.015);
+  border-radius:0 6px 6px 0;
+}
+.article-kp-list li b,.article-kp-list li strong{
+  color:#e8d8b0;font-weight:600;
+}
 
 /* ── SEARCH MODAL ── */
 .search-modal{display:none;position:fixed;inset:0;background:var(--bg);z-index:300;overflow-y:auto}
@@ -645,28 +684,75 @@ function openArticle(id) {
   if(!item) return;
   const impColor=item.importance==='high'?'var(--red)':item.importance==='medium'?'var(--gold)':'var(--green)';
   const impLabel=item.importance==='high'?'Must Read':item.importance==='medium'?'Important':'Good to Know';
-  const kpLines=item.keyPoints?item.keyPoints.split('\n').filter(l=>l.trim()).map(l=>l.replace(/^[•\-]\s*/,'')):[];
   const validLink=(item.link&&item.link.trim().startsWith('http'))?item.link.trim():null;
-  
+
   history.pushState({articleModal:true,id},'',location.href.split('?')[0]+'?id='+id);
   document.getElementById('articleBackBtn').onclick=(e)=>{ e.stopPropagation(); history.back(); };
+
+  // Section label config
+  const labelCfg = {
+    summary:    {cls:'s', text:'Summary'},
+    keyPoints:  {cls:'k', text:'Key Points'},
+    whyInNews:  {cls:'w', text:'Why in News'},
+    upscAngle:  {cls:'u', text:'UPSC Angle'},
+    background: {cls:'bg',text:'Background'},
+    constitutional:{cls:'cf',text:'Constitutional / Legal'},
+    schemes:    {cls:'cf',text:'Government Schemes'},
+    data:       {cls:'st',text:'Data & Statistics'},
+    international:{cls:'st',text:'International Context'},
+    wayForward: {cls:'wf',text:'Way Forward'},
+  };
+
+  // Render a section block
+  function renderSection(type, content) {
+    if(!content || !content.trim()) return '';
+    const cfg = labelCfg[type] || {cls:'s', text:type};
+    // If content has bullet lines starting with • or -
+    const lines = content.split('\n').map(l=>l.trim()).filter(Boolean);
+    const isBullet = type==='keyPoints' || (type!=='upscAngle' && lines.length > 1 && lines.some(l=>/^[•\-\*]/.test(l)));
+    let body;
+    if(type==='keyPoints' || isBullet) {
+      const items = lines.map(l=>l.replace(/^[•\-\*]\s*/,''));
+      body = `<ul class="article-kp-list">${items.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+    } else {
+      body = `<div class="article-sec-text">${content.replace(/\n/g,'<br>')}</div>`;
+    }
+    return `<div class="article-section"><div class="article-sec-label ${cfg.cls}">${cfg.text}</div>${body}</div>`;
+  }
+
+  // Build sections — support both new `sections` array and legacy flat fields
+  let sectionsHTML = '';
+  if(item.sections && item.sections.length) {
+    // New dynamic format: [{type, content}]
+    sectionsHTML = item.sections.map(s=>renderSection(s.type, s.content)).join('');
+  } else {
+    // Legacy format
+    sectionsHTML =
+      renderSection('summary', item.summary) +
+      renderSection('keyPoints', item.keyPoints) +
+      renderSection('whyInNews', item.whyInNews) +
+      renderSection('upscAngle', item.upscAngle);
+  }
+
+  const imgs = item.imgUrls&&item.imgUrls.length ? item.imgUrls : (item.imgUrl?[item.imgUrl]:[]);
+  const imgHTML = !imgs.length ? '' : imgs.length===1
+    ? `<img src="${imgs[0]}" style="width:100%;max-height:480px;object-fit:contain;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border)">`
+    : `<div style="display:grid;grid-template-columns:${imgs.length===3?'1fr 1fr 1fr':'1fr 1fr'};gap:0.5rem;margin-bottom:1.5rem">${imgs.map(url=>`<img src="${url}" style="width:100%;height:220px;object-fit:cover;border-radius:6px;border:1px solid var(--border);cursor:pointer" onclick="openLightbox('${url}')" title="Click to enlarge">`).join('')}</div>`;
+
   document.getElementById('articleModalBody').innerHTML=`
     <div class="article-modal-topic">
       <span style="font-size:0.65rem;padding:3px 10px;border-radius:3px;background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.3);text-transform:uppercase;letter-spacing:0.5px;font-weight:600">${item.topic}</span>
       <span style="margin-left:8px;font-size:0.65rem;color:${impColor}">${impLabel}</span>
     </div>
     <h1 class="article-modal-h1">${item.title}</h1>
-    ${(()=>{const imgs=item.imgUrls&&item.imgUrls.length?item.imgUrls:(item.imgUrl?[item.imgUrl]:[]);if(!imgs.length)return '';if(imgs.length===1)return `<img src="${imgs[0]}" style="width:100%;max-height:480px;object-fit:contain;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border)">`;return `<div style="display:grid;grid-template-columns:${imgs.length===3?'1fr 1fr 1fr':'1fr 1fr'};gap:0.5rem;margin-bottom:1.5rem">${imgs.map(url=>`<img src="${url}" style="width:100%;height:220px;object-fit:cover;border-radius:6px;border:1px solid var(--border);cursor:pointer" onclick="openLightbox('${url}')" title="Click to enlarge">`).join('')}</div>`;})()}
+    ${imgHTML}
     <div class="article-modal-meta">
       <span>📅 ${fmtDate(item.date)}</span>
       <span style="color:var(--text3)">·</span>
       <span style="cursor:pointer;color:var(--blue);font-weight:500" onclick="copyArticleLink('${item.id}')"><i class="ti ti-share-2"></i> Copy Link</span>
       ${validLink?`<span style="color:var(--text3)">·</span> <a href="${validLink}" target="_blank" style="color:var(--gold)">↗ Source</a>`:''}
     </div>
-    ${item.summary?`<div class="article-section"><div class="article-sec-label s">Summary</div><div class="article-sec-text">${item.summary}</div></div>`:''}
-    ${kpLines.length?`<div class="article-section"><div class="article-sec-label k">Key Points</div><ul class="article-kp-list">${kpLines.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
-    ${item.whyInNews?`<div class="article-section"><div class="article-sec-label w">Why in News</div><div class="article-sec-text">${item.whyInNews}</div></div>`:''}
-    ${item.upscAngle?`<div class="article-section"><div class="article-sec-label u">UPSC Angle</div><div class="article-sec-text" style="white-space:pre-line;line-height:1.9">${item.upscAngle}</div></div>`:''}`;
+    ${sectionsHTML}`;
   document.getElementById('articleModal').classList.add('open');
   document.body.style.overflow='hidden';
 }
