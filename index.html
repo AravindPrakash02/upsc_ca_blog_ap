@@ -1383,37 +1383,19 @@ function init() {
 }
 
 async function loadLiveContent() {
-  // Try GitHub raw first (works on Cloudflare Pages where backup.json may not be present)
-  const gh = localStorage.getItem('iap_gh_repo') || 'AravindPrakash02/upsc_ca_blog_ap';
-  const branch = localStorage.getItem('iap_gh_branch') || 'main';
-  const ghUrl = `https://raw.githubusercontent.com/${gh}/${branch}/backup.json`;
-  const localUrl = 'backup.json';
-
-  let loaded = false;
-  // Try GitHub raw URL first
+  // Fetch backup.json from same host — works when deployed to Cloudflare Pages
+  // Admin deploys both index.html + backup.json together via Worker
   try {
-    const r = await fetch(ghUrl+'?t='+Date.now());
-    if(r.ok){
+    const r = await fetch('backup.json?t=' + Date.now());
+    if (r.ok) {
       const data = await r.json();
-      siteData.ca=data.ca||[];siteData.quiz=data.quiz||[];
-      siteData.mcq=data.mcq||[];siteData.pdf=data.pdf||[];
-      if(data.branding) applyRuntimeBranding(data.branding);
-      loaded = true;
+      siteData.ca   = data.ca   || [];
+      siteData.quiz = data.quiz || [];
+      siteData.mcq  = data.mcq  || [];
+      siteData.pdf  = data.pdf  || [];
+      if (data.branding) applyRuntimeBranding(data.branding);
     }
-  } catch(e){}
-
-  // Fallback to relative backup.json (local server or same-host deploy)
-  if(!loaded){
-    try {
-      const r = await fetch(localUrl);
-      if(r.ok){
-        const data = await r.json();
-        siteData.ca=data.ca||[];siteData.quiz=data.quiz||[];
-        siteData.mcq=data.mcq||[];siteData.pdf=data.pdf||[];
-        if(data.branding) applyRuntimeBranding(data.branding);
-      }
-    } catch(e){ console.warn('backup.json not found'); }
-  }
+  } catch(e) { console.warn('backup.json not found:', e.message); }
 
   migrateLocalStorage();
   init();
