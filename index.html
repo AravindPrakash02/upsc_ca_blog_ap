@@ -752,7 +752,7 @@ function renderCACard(i) {
       <span style="cursor:pointer;color:var(--text3);font-size:0.85rem;transition:color 0.2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text3)'" onclick="event.stopPropagation();copyArticleLink('${i.id}')" title="Share"><i class="ti ti-share-2" style="font-size:0.95rem"></i></span>
       <span class="ca-read-link">Read →</span>
     </div>
-  </div>`;
+  </article>`;
 }
 
 /* CA RENDER */
@@ -776,8 +776,8 @@ function renderCA() {
     return `<div class="date-group ${isCollapsed?'collapsed':''}" id="group-${d}">
       <div class="date-label" onclick="toggleDateSection('${d}')">
         <i class="ti ti-chevron-down date-toggle-icon"></i>
-        <div style="font-size:0.72rem;color:var(--text2);font-weight:500;background:var(--bg2);border:1px solid var(--border);padding:2px 10px;border-radius:20px">
-          ${isToday(d)?'🟢 Today — ':''}${fmtDate(d)}
+        <div style="font-size:0.72rem;color:var(--text2);font-weight:500;background:var(--navy3);border:1px solid var(--border);padding:3px 12px;border-radius:20px">
+          ${isToday(d)?'&#9679; Today &mdash; ':''}${fmtDate(d)}
         </div>
         <i class="ti ti-share-2" style="color:var(--text3);cursor:pointer;transition:color 0.2s;font-size:1rem" title="Share this date" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'" onclick="event.stopPropagation();shareDateLink('${d}')" ></i>
         <div style="flex:1"></div>
@@ -827,18 +827,35 @@ function openArticle(id) {
   };
 
   // Render a section block
+  function sanitizeContent(text) {
+    if(!text) return text;
+    // Fix garbled UTF-8 bullet sequences: â¢ â â â etc
+    return text
+      .replace(/â/g, '—')  // em dash
+      .replace(/â/g, '–')  // en dash  
+      .replace(/â¢/g, '•')  // bullet
+      .replace(/â/g, '“')  // left quote
+      .replace(/â/g, '”')  // right quote
+      .replace(/â/g, '‘')  // left single quote
+      .replace(/â/g, '’')  // right single quote
+      .replace(/Â /g, ' ')             // non-breaking space
+      .replace(/â¢/g, '•')       // garbled bullet variant
+      .replace(/â/g, '—')       // garbled em dash variant
+      .replace(/â[-][-¿]/g, '')  // remaining garbled sequences
+      .replace(/â[-][-¿]/g, ''); // remaining garbled sequences
+  }
   function renderSection(type, content) {
     if(!content || !content.trim()) return '';
     const cfg = labelCfg[type] || {cls:'s', text:type};
     // If content has bullet lines starting with • or -
     const lines = content.split('\n').map(l=>l.trim()).filter(Boolean);
-    const isBullet = type==='keyPoints' || (type!=='upscAngle' && lines.length > 1 && lines.some(l=>/^[•\-\*]/.test(l)));
+    const isBullet = type==='keyPoints' || (type!=='upscAngle' && lines.length > 1 && lines.some(l=>/^[•â–\-\*\>]/.test(l)));
     let body;
     if(type==='keyPoints' || isBullet) {
-      const items = lines.map(l=>l.replace(/^[•\-\*]\s*/,''));
+      const items = lines.map(l=>sanitizeContent(l).replace(/^[\u2022\u2013\u2014\u00e2\-\*\>\s•]+/,'').trim()).filter(Boolean);
       body = `<ul class="article-kp-list">${items.map(p=>`<li>${p}</li>`).join('')}</ul>`;
     } else {
-      body = `<div class="article-sec-text">${content.replace(/\n/g,'<br>')}</div>`;
+      body = `<div class="article-sec-text">${sanitizeContent(content).replace(/\n/g,'<br>')}</div>`;
     }
     return `<div class="article-section"><div class="article-sec-label ${cfg.cls}">${cfg.text}</div>${body}</div>`;
   }
@@ -1366,19 +1383,38 @@ function init() {
 }
 
 async function loadLiveContent() {
+  // Try GitHub raw first (works on Cloudflare Pages where backup.json may not be present)
+  const gh = localStorage.getItem('iap_gh_repo') || 'AravindPrakash02/upsc_ca_blog_ap';
+  const branch = localStorage.getItem('iap_gh_branch') || 'main';
+  const ghUrl = `https://raw.githubusercontent.com/${gh}/${branch}/backup.json`;
+  const localUrl = 'backup.json';
+
+  let loaded = false;
+  // Try GitHub raw URL first
   try {
-    const response=await fetch('backup.json');
-    if(response.ok) {
-      const data=await response.json();
-      siteData.ca=data.ca||[];
-      siteData.quiz=data.quiz||[];
-      siteData.mcq=data.mcq||[];
-      siteData.pdf=data.pdf||[];
+    const r = await fetch(ghUrl+'?t='+Date.now());
+    if(r.ok){
+      const data = await r.json();
+      siteData.ca=data.ca||[];siteData.quiz=data.quiz||[];
+      siteData.mcq=data.mcq||[];siteData.pdf=data.pdf||[];
       if(data.branding) applyRuntimeBranding(data.branding);
+      loaded = true;
     }
-  } catch(error) {
-    console.warn('backup.json not found');
+  } catch(e){}
+
+  // Fallback to relative backup.json (local server or same-host deploy)
+  if(!loaded){
+    try {
+      const r = await fetch(localUrl);
+      if(r.ok){
+        const data = await r.json();
+        siteData.ca=data.ca||[];siteData.quiz=data.quiz||[];
+        siteData.mcq=data.mcq||[];siteData.pdf=data.pdf||[];
+        if(data.branding) applyRuntimeBranding(data.branding);
+      }
+    } catch(e){ console.warn('backup.json not found'); }
   }
+
   migrateLocalStorage();
   init();
 }
