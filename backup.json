@@ -1,6 +1,47 @@
 {
   "ca": [
     {
+      "id": "mqkv1cskdy0",
+      "date": "2026-06-16",
+      "topic": "Science & Tech",
+      "importance": "low",
+      "title": "Elon Musk’s AI tool Grok was used in strikes against Iran",
+      "summary": "The <b>United States Department of Justice</b> has defended the energy requirements of <b>xAI</b>'s data centers in a legal brief, citing the critical role of <b>Elon Musk</b>'s <b>Grok</b> AI in military operations. The disclosure highlights the transition of the <b>Pentagon</b>'s <b>Project Maven</b> from <b>Anthropic</b>'s <b>Claude</b> model to other AI providers following ethical disagreements regarding automated strike capabilities.",
+      "keyPoints": "• <b>Elon Musk’s AI tool Grok</b> &mdash; Identified as a key technology currently utilized by the <b>U.S. military</b> for operational targeting.\n• <b>Strikes against Iran</b> &mdash; The context in which the <b>U.S. government</b> confirmed the deployment of <b>Grok</b>-assisted AI capabilities.\n• <b>Project Maven</b> &mdash; The <b>U.S. military</b>'s AI-assisted targeting program, which integrates advanced machine learning for combat operations.\n• <b>Anthropic’s Claude model</b> &mdash; The initial AI model used to power <b>Project Maven</b> before the <b>Pentagon</b> terminated the contract.\n• <b>Operation Epic Fury</b> &mdash; A specific military operation where <b>Project Maven Smart Systems</b> enabled the deployment of over 2,000 munitions to 2,000 distinct targets within 96 hours.\n• <b>Grok Gov Model</b> &mdash; The specific iteration of <b>Elon Musk</b>'s AI technology credited with significantly increasing operational efficiency for the <b>Department of War</b>.\n• <b>Project Maven Smart Systems (MSS)</b> &mdash; The technological framework that facilitated the rapid, large-scale deployment of munitions during <b>Operation Epic Fury</b>.\n• <b>Legal Defense of xAI</b> &mdash; The <b>Department of Justice</b> argued that shutting down <b>xAI</b> power supplies threatens <b>American</b> national, economic, and energy security.\n• <b>Ethical AI Constraints</b> &mdash; <b>Anthropic</b> lost its <b>Pentagon</b> contract after refusing to allow its tools to be used for fully automated strikes or mass surveillance of <b>Americans</b>.\n• <b>Pentagon AI Chief Cameron Stanley</b> &mdash; Provided sworn testimony confirming the integration of <b>Grok</b> into military targeting systems.",
+      "whyInNews": "The <b>U.S. government</b> revealed the military application of <b>Grok</b> while defending <b>xAI</b> against an environmental lawsuit concerning the power consumption of its data centers.",
+      "upscAngle": "Prelims: GS3 – Science & Technology (AI/Defense) | Mains: GS3 – Internal Security and Ethics in Artificial Intelligence.",
+      "link": "",
+      "imgUrl": "",
+      "imgUrls": [],
+      "ts": 1781869405700,
+      "sections": [
+        {
+          "type": "summary",
+          "content": "The <b>United States Department of Justice</b> has defended the energy requirements of <b>xAI</b>'s data centers in a legal brief, citing the critical role of <b>Elon Musk</b>'s <b>Grok</b> AI in military operations. The disclosure highlights the transition of the <b>Pentagon</b>'s <b>Project Maven</b> from <b>Anthropic</b>'s <b>Claude</b> model to other AI providers following ethical disagreements regarding automated strike capabilities."
+        },
+        {
+          "type": "whyInNews",
+          "content": "The <b>U.S. government</b> revealed the military application of <b>Grok</b> while defending <b>xAI</b> against an environmental lawsuit concerning the power consumption of its data centers."
+        },
+        {
+          "type": "keyPoints",
+          "content": "• <b>Elon Musk’s AI tool Grok</b> &mdash; Identified as a key technology currently utilized by the <b>U.S. military</b> for operational targeting.\n• <b>Strikes against Iran</b> &mdash; The context in which the <b>U.S. government</b> confirmed the deployment of <b>Grok</b>-assisted AI capabilities.\n• <b>Project Maven</b> &mdash; The <b>U.S. military</b>'s AI-assisted targeting program, which integrates advanced machine learning for combat operations.\n• <b>Anthropic’s Claude model</b> &mdash; The initial AI model used to power <b>Project Maven</b> before the <b>Pentagon</b> terminated the contract.\n• <b>Operation Epic Fury</b> &mdash; A specific military operation where <b>Project Maven Smart Systems</b> enabled the deployment of over 2,000 munitions to 2,000 distinct targets within 96 hours.\n• <b>Grok Gov Model</b> &mdash; The specific iteration of <b>Elon Musk</b>'s AI technology credited with significantly increasing operational efficiency for the <b>Department of War</b>.\n• <b>Project Maven Smart Systems (MSS)</b> &mdash; The technological framework that facilitated the rapid, large-scale deployment of munitions during <b>Operation Epic Fury</b>.\n• <b>Legal Defense of xAI</b> &mdash; The <b>Department of Justice</b> argued that shutting down <b>xAI</b> power supplies threatens <b>American</b> national, economic, and energy security.\n• <b>Ethical AI Constraints</b> &mdash; <b>Anthropic</b> lost its <b>Pentagon</b> contract after refusing to allow its tools to be used for fully automated strikes or mass surveillance of <b>Americans</b>.\n• <b>Pentagon AI Chief Cameron Stanley</b> &mdash; Provided sworn testimony confirming the integration of <b>Grok</b> into military targeting systems."
+        },
+        {
+          "type": "background",
+          "content": "<b>Project Maven</b>, also known as the <b>Algorithmic Warfare Cross-Functional Team</b>, was established by the <b>U.S. Department of Defense</b> to accelerate the integration of big data and AI into military intelligence and targeting. The shift toward private sector AI models like <b>Grok</b>, <b>Claude</b>, and <b>OpenAI</b> reflects the growing reliance of modern militaries on commercial <b>Large Language Models (LLMs)</b> for decision-support systems."
+        },
+        {
+          "type": "international",
+          "content": "The use of AI in kinetic military operations raises significant questions regarding <b>International Humanitarian Law (IHL)</b>, specifically the principles of distinction, proportionality, and human accountability in the use of lethal force."
+        },
+        {
+          "type": "upscAngle",
+          "content": "Prelims: GS3 – Science & Technology (AI/Defense) | Mains: GS3 – Internal Security and Ethics in Artificial Intelligence."
+        }
+      ]
+    },
+    {
       "id": "mqki5cgg8jx",
       "date": "2026-06-19",
       "topic": "Social Issues",
@@ -620,10 +661,10 @@
       "keyPoints": "â¢ India and France have adopted an Innovation Roadmap 2030 to provide a long-term direction to their bilateral partnership.\nâ¢ The two nations established a new Dialogue on Economic Security to address critical supply chain vulnerabilities, particularly regarding critical minerals.\nâ¢ Both sides called for the early implementation of the India-EU Free Trade Agreement, which was initially signed in February of this year.\nâ¢ A High-Level Mechanism has been established with the objective of doubling bilateral trade within the next five years.\nâ¢ The leaders agreed to create a Joint India-France AI Working Group to expand cooperation in artificial intelligence and related technologies.\nâ¢ The discussions included specific focus areas for cooperation, including the SME, rail, and aviation sectors.\nâ¢ Prime Minister Modi and President Macron co-inaugurated the Bharat Innovates 2026 event in Nice, emphasizing trust and technological collaboration.\nâ¢ Nineteen agreements were signed between various entities to foster integration between the innovation ecosystems of India and France.\nâ¢ The bilateral relationship has been formally elevated to a Special Strategic Partnership to reflect an enhanced level of cooperation.\nâ¢ President Macron highlighted India's role as a reliable partner in the global geopolitical landscape during times of upheaval.",
       "whyInNews": "The meeting between the two leaders in Nice, France, served as a platform to advance the India-France Special Strategic Partnership through new institutional frameworks and technology-focused agreements.",
       "upscAngle": "Prelims: GS2 - International Relations | Mains: GS2 - Bilateral, regional and global groupings and agreements involving India and/or affecting India's interests.",
-      "link": "",
+      "link": "The Hindu",
       "imgUrl": "",
       "imgUrls": [],
-      "ts": 1781593966850
+      "ts": 1781868145330
     },
     {
       "id": "mqdin2jiklt",
@@ -1041,5 +1082,5 @@
     "ctaTitle": "Start Your UPSC Preparation Today",
     "ctaSub": "Daily structured current affairs. Free. No login required. Updated every morning."
   },
-  "exported": "2026-06-19T05:44:04.981Z"
+  "exported": "2026-06-19T11:43:38.017Z"
 }
