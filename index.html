@@ -2538,6 +2538,28 @@ function applyBrandingToIndex(html){
 
 /* ── SESSION CHECK ────────────────────────────────────────────── */
 /* ── LOAD DATA FROM GITHUB ────────────────────────────────────── */
+async function loadDataFromWorker(){
+  const {workerUrl}=getCFSettings();
+  if(!workerUrl) return false;
+  try{
+    const res=await fetch(workerUrl.replace(/\/$/,'')+'/backup.json?t='+Date.now());
+    if(!res.ok) return false;
+    const content=await res.json();
+    const hasContent=(content.ca&&content.ca.length)||(content.quiz&&content.quiz.length)||(content.mcq&&content.mcq.length)||(content.pdf&&content.pdf.length)||content.branding;
+    if(!hasContent) return false; // empty KV — don't overwrite local data with nothing
+    if(content.ca)   { window.siteData.ca=content.ca;   _syncToLocalStorage('ca',content.ca); }
+    if(content.quiz) { window.siteData.quiz=content.quiz;_syncToLocalStorage('quiz',content.quiz); }
+    if(content.mcq)  { window.siteData.mcq=content.mcq; _syncToLocalStorage('mcq',content.mcq); }
+    if(content.pdf)  { window.siteData.pdf=content.pdf; _syncToLocalStorage('pdf',content.pdf); }
+    if(content.branding){ localStorage.setItem('iap_branding',JSON.stringify(content.branding)); }
+    window.dataSource='worker';
+    return true;
+  }catch(e){
+    console.warn('Worker load failed, using localStorage',e);
+    return false;
+  }
+}
+
 async function loadDataFromGitHub(){
   const {token,repo,branch,folder}=getGHSettings();
   if(!token||!repo) return false;
@@ -2579,13 +2601,17 @@ function showDataSourceBadge(){
   if(existing) existing.remove();
   const badge=document.createElement('div');
   badge.id='dataSourceBadge';
-  const isGH=window.dataSource==='github';
+  const src=window.dataSource; // 'worker' | 'github' | undefined(local)
+  const cfg={
+    worker: {bg:'rgba(74,158,114,0.15)',border:'1px solid rgba(74,158,114,0.3)',color:'var(--green)',text:'&#9729; Worker (live)',title:'Loaded from Cloudflare Worker &mdash; this is the live published data'},
+    github: {bg:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'var(--gold)',text:'&#8593; GitHub (backup)',title:'Worker unreachable &mdash; loaded from GitHub backup instead'},
+    local:  {bg:'rgba(201,74,74,0.1)',border:'1px solid rgba(201,74,74,0.3)',color:'var(--red)',text:'&#9888; Local only',title:'Worker and GitHub both unavailable &mdash; using this browser\'s local data only'},
+  };
+  const c=cfg[src]||cfg.local;
   badge.style.cssText='position:fixed;bottom:1rem;right:1rem;font-size:0.65rem;padding:4px 10px;border-radius:100px;z-index:999;font-family:\'DM Sans\',sans-serif;font-weight:600';
-  badge.style.background=isGH?'rgba(70,145,106,0.15)':'rgba(201,168,76,0.1)';
-  badge.style.border=isGH?'1px solid rgba(70,145,106,0.3)':'1px solid rgba(201,168,76,0.25)';
-  badge.style.color=isGH?'var(--green)':'var(--gold)';
-  badge.textContent=isGH?'⬆ GitHub':'⚠ Local only';
-  badge.title=isGH?'Data loaded from GitHub &mdash; Publish to sync':'No GitHub connection &mdash; data is local only';
+  badge.style.background=c.bg; badge.style.border=c.border; badge.style.color=c.color;
+  badge.innerHTML=c.text;
+  badge.title=c.title;
   document.body.appendChild(badge);
 }
 
@@ -2607,8 +2633,12 @@ async function _initApp(){
   statusEl.textContent='⏳ Loading data…';
   document.querySelector('.anav-tabs')?.after(statusEl);
 
-  const fromGH=await loadDataFromGitHub();
-  if(!fromGH) _loadFromLocalStorage();
+  // Worker (live KV) is the primary source of truth.
+  // GitHub is a secondary safety net only if the Worker is unreachable/empty.
+  // localStorage (this browser only) is the final fallback.
+  let loaded=await loadDataFromWorker();
+  if(!loaded) loaded=await loadDataFromGitHub();
+  if(!loaded) _loadFromLocalStorage();
 
   statusEl.remove();
   renderAll();
