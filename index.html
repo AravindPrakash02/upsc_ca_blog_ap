@@ -1304,7 +1304,7 @@ Explanation: Article 14 guarantees equality before law.
     </div>
     <div class="fg2">
       <div class="frow"><label>Worker URL <span style="font-weight:400;color:var(--text-3)">(required)</span></label><input type="text" id="cfWorkerUrl" placeholder="https://cf-workerjs.meetcheetah.workers.dev"></div>
-      <div class="frow"><label>Publish Key <span style="font-weight:400;color:var(--text-3)">(matches PUBLISH_KEY in worker)</span></label><input type="text" id="cfPublishKey" placeholder="iap-2026-secret"></div>
+      <div class="frow"><label>Publish Key <span style="font-weight:400;color:var(--text-3)">(matches PUBLISH_KEY in worker)</span></label><input type="text" id="cfPublishKey" placeholder="paste your worker's PUBLISH_KEY here"></div>
     </div>
     <details style="margin-bottom:0.75rem">
       <summary style="font-size:0.72rem;color:var(--text-3);cursor:pointer">Advanced: direct Pages API (optional, not needed with Worker)</summary>
@@ -2211,6 +2211,9 @@ async function publishToCloudflare(){
   if(!workerUrl){
     toast('Add your Worker URL in Settings first',true);showPage('page-settings');return;
   }
+  if(!publishKey){
+    toast('Add your Publish Key in Settings first',true);showPage('page-settings');return;
+  }
 
   btn.disabled=true;spinner.style.display='block';btnText.innerHTML='Deploying...';
   status.innerHTML='';log.style.display='block';log.innerHTML='&#9729; Starting deploy to Cloudflare Worker...';
@@ -2237,7 +2240,7 @@ async function publishToCloudflare(){
 
     const res=await fetch(endpoint,{
       method:'POST',
-      headers:{'Content-Type':'application/json','X-Publish-Key':publishKey||'iap-2026-secret'},
+      headers:{'Content-Type':'application/json','X-Publish-Key':publishKey},
       body:JSON.stringify(payload),
     });
     const result=await res.json().catch(()=>({error:'Invalid response from Worker'}));
