@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Admin — IAS Aspirants Parliament</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
@@ -49,7 +50,7 @@
   --blue-bg:       rgba(64,112,168,0.09);
   --purple-bg:     rgba(106,88,171,0.09);
 
-  --nav-h:   54px;
+  --nav-h:   70px;
   --radius:  10px;
   --radius-s: 7px;
   --ease:    cubic-bezier(0.16,1,0.3,1);
@@ -81,7 +82,7 @@ button { font-family:inherit; cursor:pointer; }
   position: sticky; top:0; z-index:200;
   height: var(--nav-h);
   display: flex; align-items: center;
-  padding: 0 1.75rem; gap: 1rem;
+  padding: 0 2.5rem; gap: 1.5rem;
   background: rgba(7,10,16,0.85);
   backdrop-filter: blur(24px) saturate(1.5);
   -webkit-backdrop-filter: blur(24px) saturate(1.5);
@@ -91,30 +92,30 @@ button { font-family:inherit; cursor:pointer; }
 }
 
 .anav-logo {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
   flex-shrink: 0;
 }
 .anav-logo-mark {
-  width: 28px; height: 28px;
+  width: 38px; height: 38px;
   background: var(--gold-dim);
   border: 1px solid var(--gold-border);
-  border-radius: 7px;
+  border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.72rem; font-weight: 800;
+  font-size: 0.9rem; font-weight: 800;
   color: var(--gold);
   letter-spacing: -0.5px;
 }
-.anav-logo-text { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
-.anav-logo-text strong { color: var(--text); font-weight: 600; }
+.anav-logo-text { font-size: 0.95rem; font-weight: 600; color: var(--text-2); }
+.anav-logo-text strong { color: var(--text); font-weight: 700; }
 
-.anav-sep { width:1px; height:18px; background:var(--border-mid); flex-shrink:0; }
+.anav-sep { width:1px; height:24px; background:var(--border-mid); flex-shrink:0; }
 
-.anav-tabs { display:flex; gap:2px; flex:1; overflow-x:auto; scrollbar-width:none; }
+.anav-tabs { display:flex; gap:4px; flex:1; overflow-x:auto; scrollbar-width:none; }
 .anav-tabs::-webkit-scrollbar { display:none; }
 .atab {
   background: none; border: 1px solid transparent;
-  color: var(--text-3); font-size: 0.72rem;
-  padding: 5px 12px; border-radius: 6px;
+  color: var(--text-3); font-size: 0.85rem;
+  padding: 8px 16px; border-radius: 7px;
   transition: all 0.16s; font-weight: 500;
   white-space: nowrap;
 }
@@ -125,11 +126,11 @@ button { font-family:inherit; cursor:pointer; }
 }
 
 .nav-view-btn {
-  font-size: 0.7rem; color: var(--text-3);
-  padding: 5px 12px; border: 1px solid var(--border);
-  border-radius: 6px; transition: all 0.16s;
+  font-size: 0.82rem; color: var(--text-3);
+  padding: 8px 16px; border: 1px solid var(--border);
+  border-radius: 7px; transition: all 0.16s;
   white-space: nowrap; flex-shrink: 0;
-  display: flex; align-items: center; gap: 5px;
+  display: flex; align-items: center; gap: 6px;
 }
 .nav-view-btn:hover { border-color: var(--gold-border); color: var(--gold); }
 
@@ -202,7 +203,7 @@ button { font-family:inherit; cursor:pointer; }
   margin-bottom: 6px; font-weight: 700; letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.frow input,
+.frow input:not([type=radio]):not([type=checkbox]),
 .frow textarea,
 .frow select {
   width: 100%;
@@ -216,7 +217,7 @@ button { font-family:inherit; cursor:pointer; }
   outline: none; resize: vertical;
   appearance: none; -webkit-appearance: none;
 }
-.frow input:focus,
+.frow input:focus:not([type=radio]):not([type=checkbox]),
 .frow textarea:focus,
 .frow select:focus {
   border-color: var(--gold-border);
@@ -502,9 +503,9 @@ button { font-family:inherit; cursor:pointer; }
   border: 1px solid var(--gold-border); padding: 2px 8px; border-radius: 4px;
   display: inline-block; margin-bottom: 0.6rem; font-weight: 700;
 }
-.mcq-q-text { font-size: 0.8rem; color: var(--text); margin-bottom: 0.45rem; line-height: 1.5; }
-.mcq-q-opts { display:flex; flex-direction:column; gap:1px; margin-bottom:0.4rem; }
-.mcq-q-opt { font-size: 0.73rem; color: var(--text-3); padding: 2px 0; }
+.mcq-q-text { font-size: 0.95rem; color: var(--text); margin-bottom: 0.5rem; line-height: 1.55; }
+.mcq-q-opts { display:flex; flex-direction:column; gap:2px; margin-bottom:0.5rem; }
+.mcq-q-opt { font-size: 0.85rem; color: var(--text-3); padding: 2px 0; }
 .mcq-q-opt.correct { color: var(--green); font-weight: 600; }
 .mcq-q-actions { position:absolute; top:0.75rem; right:0.75rem; display:flex; gap:4px; }
 
@@ -520,8 +521,8 @@ button { font-family:inherit; cursor:pointer; }
 .item-row:hover { border-color: var(--border-mid); background: rgba(255,255,255,0.035); }
 .item-body { flex:1; min-width:0; }
 .item-title {
-  font-size: 0.82rem; color: var(--text); font-weight: 500;
-  margin-bottom: 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  font-size: 0.95rem; color: var(--text); font-weight: 500;
+  margin-bottom: 5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 .item-meta {
   font-size: 0.63rem; color: var(--text-3);
@@ -933,37 +934,88 @@ select option{color:var(--text);background:var(--bg-3);font-size:0.8rem}
     <div class="pg-head-title">Daily Quiz</div>
   </div>
   <div class="fcard">
-    <div class="fcard-head"><span class="fcard-head-title">Add Question</span></div>
+    <div class="fcard-head"><span class="fcard-head-title">Quiz Details</span></div>
     <div class="fg2">
-      <div class="frow"><label>Date *</label><input type="date" id="quiz-date"></div>
+      <div class="frow"><label>Date *</label><input type="date" id="quiz-set-date"></div>
       <div class="frow">
         <label>Topic Tag</label>
-        <select id="quiz-topic">
+        <select id="quiz-set-topic">
           <option>Polity</option><option>Economy</option><option>Environment</option>
           <option>Science & Tech</option><option>History</option><option>Geography</option>
           <option>IR & Security</option><option>General</option>
         </select>
       </div>
     </div>
-    <div class="frow"><label>Question *</label><textarea id="quiz-q" rows="2" placeholder="Type the question here…"></textarea></div>
-    <div class="frow">
-      <label>Options &mdash; click ● beside the correct answer *</label>
-      <div class="opts-group" style="margin-top:6px" id="quizOptsGroup">
-        <div class="opt-row"><span class="opt-label">A.</span><input type="text" class="opt-input" placeholder="Option A"><input type="radio" name="copt" class="opt-radio" value="0"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
-        <div class="opt-row"><span class="opt-label">B.</span><input type="text" class="opt-input" placeholder="Option B"><input type="radio" name="copt" class="opt-radio" value="1"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
-        <div class="opt-row"><span class="opt-label">C.</span><input type="text" class="opt-input" placeholder="Option C"><input type="radio" name="copt" class="opt-radio" value="2"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
-        <div class="opt-row"><span class="opt-label">D.</span><input type="text" class="opt-input" placeholder="Option D"><input type="radio" name="copt" class="opt-radio" value="3"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
+    <div style="font-size:0.72rem;color:var(--text-3);line-height:1.5">Date and topic apply to all questions added below in this session. Need different topics on the same day? Save in separate batches.</div>
+  </div>
+
+  <div class="fcard">
+    <div class="fcard-head"><span class="fcard-head-title">Add Questions</span></div>
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="quizModeManual" onclick="switchQuizMode('manual')">✏️ Manual &mdash; one by one</button>
+      <button class="mode-tab" id="quizModeBulk" onclick="switchQuizMode('bulk')">🤖 AI Bulk-Parse &mdash; paste a list</button>
+    </div>
+
+    <div id="quizManualPanel">
+      <div class="frow"><label>Question *</label><textarea id="quiz-q" rows="2" placeholder="Type the question here…"></textarea></div>
+      <div class="frow">
+        <label>Options &mdash; click ● beside the correct answer *</label>
+        <div class="opts-group" style="margin-top:6px" id="quizOptsGroup">
+          <div class="opt-row"><span class="opt-label">A.</span><input type="text" class="opt-input" placeholder="Option A"><input type="radio" name="copt" class="opt-radio" value="0"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
+          <div class="opt-row"><span class="opt-label">B.</span><input type="text" class="opt-input" placeholder="Option B"><input type="radio" name="copt" class="opt-radio" value="1"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
+          <div class="opt-row"><span class="opt-label">C.</span><input type="text" class="opt-input" placeholder="Option C"><input type="radio" name="copt" class="opt-radio" value="2"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
+          <div class="opt-row"><span class="opt-label">D.</span><input type="text" class="opt-input" placeholder="Option D"><input type="radio" name="copt" class="opt-radio" value="3"><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button></div>
+        </div>
+        <div class="quiz-options-actions">
+          <button type="button" class="btn btn-ghost btn-sm" onclick="addQuizOption()">+ Add option</button>
+          <span class="opt-hint">Click ● beside the correct answer.</span>
+        </div>
       </div>
-      <div class="quiz-options-actions">
-        <button type="button" class="btn btn-ghost btn-sm" onclick="addQuizOption()">+ Add option</button>
-        <span class="opt-hint">Click ● beside the correct answer.</span>
+      <div class="frow"><label>Explanation *</label><textarea id="quiz-exp" rows="3" placeholder="Explain why the answer is correct. Add constitutional articles, body names, act provisions etc."></textarea></div>
+      <div class="btn-row">
+        <button class="btn btn-blue" onclick="addQuizQuestion()">+ Add to Queue</button>
+        <button class="btn btn-ghost" onclick="clearQuizQForm()">Clear</button>
       </div>
     </div>
-    <div class="frow"><label>Explanation *</label><textarea id="quiz-exp" rows="3" placeholder="Explain why the answer is correct. Add constitutional articles, body names, act provisions etc."></textarea></div>
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="saveQuiz()">Save Question</button>
-      <button class="btn btn-ghost" onclick="clearQuizForm()">Clear</button>
+
+    <div id="quizBulkPanel" style="display:none">
+      <div style="font-size:0.73rem;color:var(--text-3);margin-bottom:0.9rem;background:rgba(255,255,255,0.02);padding:0.65rem;border-radius:6px;border:1px solid var(--border);line-height:1.7">
+        Paste a numbered quiz list in any format. AI will parse it into structured questions.<br>
+        <b style="color:var(--text-2)">Supported:</b> numbered options (A/B/C/D or 1/2/3/4), answer key at end or inline, with or without explanations.
+      </div>
+      <textarea class="ai-paste" id="quizBulkInput" style="min-height:180px" placeholder="1. Which Article of the Constitution deals with the Right to Equality?
+A) Article 12   B) Article 14   C) Article 19   D) Article 21
+Answer: B
+Explanation: Article 14 guarantees equality before law.
+
+2. The concept of 'Basic Structure' was established in which case?
+..."></textarea>
+      <button class="ai-format-btn" id="quizBulkParseBtn" onclick="bulkParseQuiz()" style="margin-top:0.65rem">
+        <div class="ai-spinner" id="quizBulkSpinner"></div>
+        <span id="quizBulkBtnText">🤖 Parse Questions with AI</span>
+      </button>
+      <div id="quizBulkPreview" style="display:none;margin-top:1rem">
+        <div style="font-size:0.67rem;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:space-between">
+          <span id="quizBulkPreviewCount"></span>
+          <button class="btn btn-blue btn-sm" onclick="acceptQuizBulkParsed()">✓ Add All to Queue</button>
+        </div>
+        <div id="quizBulkPreviewContent"></div>
+      </div>
     </div>
+
+    <div style="margin-top:1.5rem">
+      <div style="font-size:0.67rem;color:var(--text-2);font-weight:700;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem">
+        Question Queue
+        <span id="quizQueueCount" style="background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-border);padding:1px 9px;border-radius:100px;font-size:0.6rem;font-weight:700">0</span>
+        <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="clearQuizQueue()">Clear Queue</button>
+      </div>
+      <div id="quizQueue"><div style="color:var(--text-3);font-size:0.76rem;text-align:center;padding:1rem;background:rgba(255,255,255,0.02);border:1px dashed var(--border);border-radius:7px">No questions in queue yet.</div></div>
+    </div>
+  </div>
+
+  <div class="btn-row" style="margin-top:0">
+    <button class="btn btn-primary" onclick="saveQuizQueue()">💾 Save All Questions</button>
+    <button class="btn btn-ghost" onclick="clearQuizSetForm()">Discard All</button>
   </div>
   <div class="stitle" style="margin-top:2rem">All Questions</div>
   <div id="quizList"></div>
@@ -988,7 +1040,10 @@ select option{color:var(--text);background:var(--bg-3);font-size:0.8rem}
         </select>
       </div>
     </div>
-    <div class="frow"><label>Set Title *</label><input type="text" id="mcq-title" placeholder="e.g. Polity & Governance — Set 4"></div>
+    <div class="fg2">
+      <div class="frow"><label>Set Title *</label><input type="text" id="mcq-title" placeholder="e.g. Polity & Governance — Set 4"></div>
+      <div class="frow"><label>Timer (minutes) <span style="font-weight:400;color:var(--text-3)">(test auto-submits when time runs out)</span></label><input type="number" id="mcq-timer" min="1" max="180" placeholder="e.g. 10" value="10"></div>
+    </div>
   </div>
 
   <div class="fcard">
@@ -1338,6 +1393,22 @@ Explanation: Article 14 guarantees equality before law.
 
     <div style="height:1px;background:var(--border);margin-bottom:1rem"></div>
 
+    <!-- Pick a new index.html (optional — only if updating the site shell) -->
+    <div style="font-size:0.78rem;color:var(--text-2);line-height:1.7;margin-bottom:0.75rem">
+      <b style="color:var(--text)">Upload a new index.html</b> <span style="color:var(--text-3);font-weight:400">(optional)</span><br>
+      Only needed when updating the site shell itself, not when publishing new content. Pick the file first, then click Deploy below.
+    </div>
+    <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:0.75rem">
+      <button class="btn btn-ghost" onclick="document.getElementById('indexUploadFile').click()">
+        📄 Select index.html
+      </button>
+      <input type="file" id="indexUploadFile" accept=".html" style="display:none" onchange="loadIndexFromFile(event)">
+      <span id="indexFileStatus" style="font-size:0.72rem;color:var(--text-3)">No file selected</span>
+    </div>
+    <div id="indexFilePreview" style="display:none;margin-bottom:0.85rem;font-size:0.72rem;background:rgba(70,145,106,0.07);border:1px solid rgba(70,145,106,0.2);border-radius:7px;padding:0.65rem;color:var(--green)"></div>
+
+    <div style="height:1px;background:var(--border);margin-bottom:1rem"></div>
+
     <!-- Commit note + two publish buttons -->
     <div style="margin-bottom:0.75rem">
       <label style="font-size:0.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;font-weight:700;display:block;margin-bottom:5px">Commit Note <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional &mdash; for GitHub commit message)</span></label>
@@ -1386,14 +1457,6 @@ Explanation: Article 14 guarantees equality before law.
       </button>
       <span id="cleanDataStatus" style="font-size:0.72rem;color:var(--text-3)"></span>
     </div>
-    <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
-      <button class="btn btn-ghost" onclick="document.getElementById('indexUploadFile').click()">
-        📄 Select index.html
-      </button>
-      <input type="file" id="indexUploadFile" accept=".html" style="display:none" onchange="loadIndexFromFile(event)">
-      <span id="indexFileStatus" style="font-size:0.72rem;color:var(--text-3)">No file selected</span>
-    </div>
-    <div id="indexFilePreview" style="display:none;margin-top:0.75rem;font-size:0.72rem;background:rgba(70,145,106,0.07);border:1px solid rgba(70,145,106,0.2);border-radius:7px;padding:0.65rem;color:var(--green)"></div>
   </div>
 
 </div>
@@ -1956,22 +2019,12 @@ function renderCAList(){
 }
 
 /* ── QUIZ ─────────────────────────────────────────────────────── */
-function saveQuiz(){
-  const date=document.getElementById('quiz-date').value,q=document.getElementById('quiz-q').value.trim(),exp=document.getElementById('quiz-exp').value.trim();
-  if(!date||!q||!exp){toast('Date, question and explanation are required',true);return}
-  const radios=document.querySelectorAll('#quizOptsGroup input[type=radio]');
-  let correctIdx=-1;radios.forEach((r,i)=>{if(r.checked)correctIdx=i});
-  if(correctIdx===-1){toast('Select the correct answer',true);return}
-  const opts=[...document.querySelectorAll('#quizOptsGroup .opt-input')].map(i=>i.value.trim()).filter(Boolean);
-  if(opts.length<2){toast('Add at least 2 options',true);return}
-  const items=get('quiz');
-  items.push({id:uid(),date,topic:document.getElementById('quiz-topic').value,q,opts,correct:correctIdx,exp,ts:Date.now()});
-  set('quiz',items);clearQuizForm();toast('✓ Question saved!');renderAll();
-}
-function clearQuizForm(){
-  document.getElementById('quiz-q').value='';document.getElementById('quiz-exp').value='';
-  document.querySelectorAll('#quizOptsGroup .opt-input').forEach(i=>i.value='');
-  document.querySelectorAll('#quizOptsGroup input[type=radio]').forEach(r=>r.checked=false);
+let quizQueue=[];
+function switchQuizMode(mode){
+  document.getElementById('quizModeManual').classList.toggle('active',mode==='manual');
+  document.getElementById('quizModeBulk').classList.toggle('active',mode==='bulk');
+  document.getElementById('quizManualPanel').style.display=mode==='manual'?'':'none';
+  document.getElementById('quizBulkPanel').style.display=mode==='bulk'?'':'none';
 }
 function addQuizOption(){
   const g=document.getElementById('quizOptsGroup');const idx=g.children.length;
@@ -1980,24 +2033,184 @@ function addQuizOption(){
   g.appendChild(row);
 }
 function removeQuizOption(btn){const row=btn.closest('.opt-row');if(document.getElementById('quizOptsGroup').children.length>2)row.remove()}
+function addQuizQuestion(){
+  const q=document.getElementById('quiz-q').value.trim(),exp=document.getElementById('quiz-exp').value.trim();
+  if(!q||!exp){toast('Question and explanation are required',true);return}
+  const radios=document.querySelectorAll('#quizOptsGroup input[type=radio]');
+  let correctIdx=-1;radios.forEach((r,i)=>{if(r.checked)correctIdx=i});
+  if(correctIdx===-1){toast('Select the correct answer',true);return}
+  const opts=[...document.querySelectorAll('#quizOptsGroup .opt-input')].map(i=>i.value.trim()).filter(Boolean);
+  if(opts.length<2){toast('Add at least 2 options',true);return}
+  quizQueue.push({q,opts,correct:correctIdx,exp});clearQuizQForm();renderQuizQueue();toast('✓ Added to queue ('+quizQueue.length+')');
+}
+function clearQuizQForm(){
+  document.getElementById('quiz-q').value='';document.getElementById('quiz-exp').value='';
+  document.querySelectorAll('#quizOptsGroup .opt-input').forEach(i=>i.value='');
+  document.querySelectorAll('#quizOptsGroup input[type=radio]').forEach(r=>r.checked=false);
+}
+function renderQuizQueue(){
+  const el=document.getElementById('quizQueue');if(!el)return;
+  document.getElementById('quizQueueCount').textContent=quizQueue.length;
+  if(!quizQueue.length){el.innerHTML='<div style="color:var(--text-3);font-size:0.76rem;text-align:center;padding:1rem;background:rgba(255,255,255,0.02);border:1px dashed var(--border);border-radius:7px">No questions in queue yet.</div>';return}
+  el.innerHTML=quizQueue.map((q,i)=>`
+    <div class="mcq-q-card">
+      <span class="mcq-q-num">Q${i+1}</span>
+      <div class="mcq-q-text">${q.q}</div>
+      <div class="mcq-q-opts">${q.opts.map((o,oi)=>`<div class="mcq-q-opt${oi===q.correct?' correct':''}">${String.fromCharCode(65+oi)}. ${o}</div>`).join('')}</div>
+      <div style="font-size:0.68rem;color:var(--text-3);line-height:1.5">${q.exp}</div>
+      <div class="mcq-q-actions">
+        <button class="btn btn-ghost btn-sm" title="Move up" ${i===0?'disabled':''} onclick="moveQuizQueueItem(${i},-1)">↑</button>
+        <button class="btn btn-ghost btn-sm" title="Move down" ${i===quizQueue.length-1?'disabled':''} onclick="moveQuizQueueItem(${i},1)">↓</button>
+        <button class="btn btn-ghost btn-sm" onclick="editQuizQueueItem(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="quizQueue.splice(${i},1);renderQuizQueue()">Remove</button>
+      </div>
+    </div>`).join('');
+}
+function editQuizQueueItem(i){
+  const q=quizQueue[i];if(!q)return;
+  switchQuizMode('manual');
+  document.getElementById('quiz-q').value=q.q;
+  document.getElementById('quiz-exp').value=q.exp;
+  // Rebuild option rows to exactly match this question's option count
+  const g=document.getElementById('quizOptsGroup');g.innerHTML='';
+  const letters=['A','B','C','D','E','F'];
+  q.opts.forEach((o,oi)=>{
+    const row=document.createElement('div');row.className='opt-row';
+    row.innerHTML=`<span class="opt-label">${letters[oi]}.</span><input type="text" class="opt-input" placeholder="Option ${letters[oi]}" value="${o.replace(/"/g,'&quot;')}"><input type="radio" name="copt" class="opt-radio" value="${oi}"${oi===q.correct?' checked':''}><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button>`;
+    g.appendChild(row);
+  });
+  quizQueue.splice(i,1); // pull out of queue while editing — "+ Add to Queue" re-inserts it (now edited)
+  renderQuizQueue();
+  document.getElementById('quiz-q').scrollIntoView({behavior:'smooth',block:'center'});
+  toast('Editing question &mdash; update the fields and click "+ Add to Queue" to save it back');
+}
+function moveQuizQueueItem(i,dir){
+  const j=i+dir;if(j<0||j>=quizQueue.length)return;
+  [quizQueue[i],quizQueue[j]]=[quizQueue[j],quizQueue[i]];
+  renderQuizQueue();
+}
+function clearQuizQueue(){quizQueue=[];renderQuizQueue()}
+
+async function bulkParseQuiz(){
+  const raw=document.getElementById('quizBulkInput').value.trim();
+  if(raw.length<30){toast('Paste some quiz questions first',true);return}
+  const apiKey=getApiKey();if(!apiKey){toast('Add Gemini API key in Settings',true);showPage('settings');return}
+  const btn=document.getElementById('quizBulkParseBtn'),spinner=document.getElementById('quizBulkSpinner'),btnText=document.getElementById('quizBulkBtnText');
+  btn.disabled=true;spinner.style.display='block';btnText.textContent='Parsing…';
+  const prompt=`Parse the following quiz question list into a JSON array. Each object must have: q (question string), opts (array of option strings), correct (0-indexed integer of correct answer), exp (explanation string).\n\nReturn ONLY a raw JSON array. No markdown, no backticks, no extra text.\n\n${raw}`;
+  try{
+    const text=await callAI(prompt,null);
+    let parsed;
+    const clean=text.trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```\s*$/,'').trim();
+    const arrMatch=clean.match(/\[[\s\S]*\]/);
+    if(!arrMatch)throw new Error('No JSON array found in response');
+    parsed=JSON.parse(arrMatch[0]);
+    if(!Array.isArray(parsed)||!parsed.length)throw new Error('No questions parsed');
+    window._quizBulkParsed=parsed;
+    document.getElementById('quizBulkPreviewCount').textContent=parsed.length+' questions parsed';
+    document.getElementById('quizBulkPreviewContent').innerHTML=parsed.map((q,i)=>`
+      <div class="bulk-parsed-q">
+        <div class="bulk-parsed-q-text"><b>Q${i+1}.</b> ${q.q}</div>
+        ${(q.opts||[]).map((o,oi)=>`<div class="bulk-parsed-opt${oi===q.correct?' correct':''}">${String.fromCharCode(65+oi)}. ${o}</div>`).join('')}
+        ${q.exp?`<div style="font-size:0.68rem;color:var(--text-3);margin-top:4px;line-height:1.5">${q.exp}</div>`:''}
+      </div>`).join('');
+    document.getElementById('quizBulkPreview').style.display='block';
+    toast('✓ '+parsed.length+' questions parsed!');
+  }catch(e){toast('Parse error: '+e.message,true)}
+  finally{btn.disabled=false;spinner.style.display='none';btnText.textContent='🤖 Parse Questions with AI'}
+}
+function acceptQuizBulkParsed(){
+  if(!window._quizBulkParsed)return;
+  quizQueue=[...quizQueue,...window._quizBulkParsed];
+  document.getElementById('quizBulkInput').value='';
+  document.getElementById('quizBulkPreview').style.display='none';
+  renderQuizQueue();window._quizBulkParsed=null;
+  toast('✓ Added '+quizQueue.length+' questions to queue');
+}
+
+function saveQuizQueue(){
+  const date=document.getElementById('quiz-set-date').value;
+  const topic=document.getElementById('quiz-set-topic').value;
+  if(!date){toast('Date is required',true);return}
+  const items=get('quiz'),editingId=window._editingQuiz;
+  if(editingId){
+    // Editing mode: read directly from the form fields (no queue intermediary)
+    const q=document.getElementById('quiz-q').value.trim();
+    const exp=document.getElementById('quiz-exp').value.trim();
+    if(!q||!exp){toast('Question and explanation are required',true);return}
+    const radios=document.querySelectorAll('#quizOptsGroup input[type=radio]');
+    let correctIdx=-1;radios.forEach((r,i)=>{if(r.checked)correctIdx=i});
+    if(correctIdx===-1){toast('Select the correct answer',true);return}
+    const opts=[...document.querySelectorAll('#quizOptsGroup .opt-input')].map(i=>i.value.trim()).filter(Boolean);
+    if(opts.length<2){toast('Add at least 2 options',true);return}
+    const idx=items.findIndex(i=>i.id===editingId);
+    if(idx!==-1){items[idx]={...items[idx],date,topic,q,opts,correct:correctIdx,exp,ts:Date.now()};set('quiz',items);toast('✓ Question updated!')}
+  }else{
+    // Normal mode: persist whatever's in the queue
+    if(!quizQueue.length){toast('Add at least one question to the queue',true);return}
+    quizQueue.forEach(q=>{ items.push({id:uid(),date,topic,...q,ts:Date.now()}); });
+    set('quiz',items);toast('✓ '+quizQueue.length+' question'+(quizQueue.length>1?'s':'')+' saved!');
+  }
+  clearQuizSetForm();renderAll();
+}
+function clearQuizSetForm(){
+  quizQueue=[];document.getElementById('quizBulkInput').value='';
+  clearQuizQForm();renderQuizQueue();window._editingQuiz=null;
+}
+function editQuiz(id){
+  const item=get('quiz').find(i=>i.id===id);if(!item)return;
+  // Load straight into the manual entry form — no queue intermediary, since each quiz
+  // item is just one question. Editing is now direct: change the fields and click Save.
+  switchQuizMode('manual');
+  document.getElementById('quiz-set-date').value=item.date;
+  document.getElementById('quiz-set-topic').value=item.topic||'';
+  document.getElementById('quiz-q').value=item.q;
+  document.getElementById('quiz-exp').value=item.exp;
+  // Rebuild option rows to exactly match this question
+  const g=document.getElementById('quizOptsGroup');g.innerHTML='';
+  const letters=['A','B','C','D','E','F'];
+  item.opts.forEach((o,oi)=>{
+    const row=document.createElement('div');row.className='opt-row';
+    row.innerHTML=`<span class="opt-label">${letters[oi]}.</span><input type="text" class="opt-input" placeholder="Option ${letters[oi]}" value="${o.replace(/"/g,'&quot;')}"><input type="radio" name="copt" class="opt-radio" value="${oi}"${oi===item.correct?' checked':''}><button type="button" class="opt-remove" onclick="removeQuizOption(this)">✕</button>`;
+    g.appendChild(row);
+  });
+  // Clear queue, mark this question as being edited so Save All updates it instead of creating a new one
+  quizQueue=[];
+  window._editingQuiz=id;
+  renderQuizQueue();
+  showPage('quiz');
+  document.getElementById('quiz-q').scrollIntoView({behavior:'smooth',block:'center'});
+  toast('Editing question &mdash; update the fields above and click "Save All Questions" to update');
+}
+function deleteQuiz(id){if(!confirm('Delete?'))return;set('quiz',get('quiz').filter(i=>i.id!==id));toast('Deleted');renderAll()}
 function renderQuizList(){
   const el=document.getElementById('quizList');if(!el)return;
   const items=get('quiz');if(!items.length){el.innerHTML='<div class="empty">No quiz questions yet.</div>';return}
   const byDate={};items.forEach(i=>{if(!byDate[i.date])byDate[i.date]=[];byDate[i.date].push(i)});
   const dates=Object.keys(byDate).sort((a,b)=>b.localeCompare(a));
-  el.innerHTML=dates.map(d=>`
-    <div class="date-group-head"><span class="dgdate">${fmtDate(d)}</span></div>
-    <div class="items-list">
-      ${byDate[d].map(i=>`<div class="item-row">
-        <div class="item-body">
-          <div class="item-title">${i.q}</div>
-          <div class="item-meta"><span class="tag-date">${fmtDate(i.date)}</span><span class="tag-pill">${i.topic||'General'}</span><span style="color:var(--green)">Ans: ${String.fromCharCode(65+(i.correct||0))}</span></div>
-        </div>
-        <button class="btn btn-danger btn-sm" onclick="deleteQuiz('${i.id}')">Delete</button>
-      </div>`).join('')}
-    </div>`).join('');
+  const todayStr=new Date().toISOString().split('T')[0];
+  el.innerHTML=dates.map((d,idx)=>{
+    const isToday=d===todayStr;const collapsed=idx>0;
+    return `<div class="adg">
+      <div class="adg-header" onclick="toggleAdminDateGroup(this)">
+        <span class="adg-arrow">${collapsed?'▸':'▾'}</span>
+        <span class="adg-date">${isToday?'🟢 Today &mdash; ':''}${fmtDate(d)}</span>
+        <span class="adg-count">${byDate[d].length} question${byDate[d].length>1?'s':''}</span>
+      </div>
+      <div class="adg-body" style="display:${collapsed?'none':''}">
+        ${byDate[d].map(i=>`
+          <div class="item-row">
+            <div class="item-body">
+              <div class="item-title">${i.q}</div>
+              <div class="item-meta"><span class="tag-pill">${i.topic||'General'}</span><span style="color:var(--green)">Ans: ${String.fromCharCode(65+(i.correct||0))}</span></div>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="editQuiz('${i.id}')">Edit</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteQuiz('${i.id}')">Delete</button>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
 }
-function deleteQuiz(id){if(!confirm('Delete?'))return;set('quiz',get('quiz').filter(i=>i.id!==id));toast('Deleted');renderAll()}
 
 /* ── MCQ ──────────────────────────────────────────────────────── */
 let mcqQueue=[];
@@ -2040,9 +2253,33 @@ function renderMcqQueue(){
       <div class="mcq-q-opts">${q.opts.map((o,oi)=>`<div class="mcq-q-opt${oi===q.correct?' correct':''}">${String.fromCharCode(65+oi)}. ${o}</div>`).join('')}</div>
       <div style="font-size:0.68rem;color:var(--text-3);line-height:1.5">${q.exp}</div>
       <div class="mcq-q-actions">
+        <button class="btn btn-ghost btn-sm" title="Move up" ${i===0?'disabled':''} onclick="moveMcqQueueItem(${i},-1)">↑</button>
+        <button class="btn btn-ghost btn-sm" title="Move down" ${i===mcqQueue.length-1?'disabled':''} onclick="moveMcqQueueItem(${i},1)">↓</button>
+        <button class="btn btn-ghost btn-sm" onclick="editMcqQueueItem(${i})">Edit</button>
         <button class="btn btn-danger btn-sm" onclick="mcqQueue.splice(${i},1);renderMcqQueue()">Remove</button>
       </div>
     </div>`).join('');
+}
+function editMcqQueueItem(i){
+  const q=mcqQueue[i];if(!q)return;
+  document.getElementById('mcq-q').value=q.q;
+  document.getElementById('mcq-exp').value=q.exp;
+  const g=document.getElementById('mcqOptsGroup');g.innerHTML='';
+  const letters=['A','B','C','D','E','F'];
+  q.opts.forEach((o,oi)=>{
+    const row=document.createElement('div');row.className='opt-row';
+    row.innerHTML=`<span class="opt-label">${letters[oi]}.</span><input type="text" class="mcq-opt-input" placeholder="Option ${letters[oi]}" value="${o.replace(/"/g,'&quot;')}"><input type="radio" name="mcqcopt" class="opt-radio" value="${oi}"${oi===q.correct?' checked':''}><button type="button" class="opt-remove" onclick="removeMcqOption(this)">✕</button>`;
+    g.appendChild(row);
+  });
+  mcqQueue.splice(i,1); // pull out of queue while editing — "+ Add to Queue" re-inserts it (now edited)
+  renderMcqQueue();
+  document.getElementById('mcq-q').scrollIntoView({behavior:'smooth',block:'center'});
+  toast('Editing question &mdash; update the fields and click "+ Add to Queue" to save it back');
+}
+function moveMcqQueueItem(i,dir){
+  const j=i+dir;if(j<0||j>=mcqQueue.length)return;
+  [mcqQueue[i],mcqQueue[j]]=[mcqQueue[j],mcqQueue[i]];
+  renderMcqQueue();
 }
 function clearMcqQueue(){mcqQueue=[];renderMcqQueue()}
 
@@ -2085,25 +2322,28 @@ function acceptBulkParsed(){
 
 function saveMCQSet(){
   const date=document.getElementById('mcq-date').value,title=document.getElementById('mcq-title').value.trim();
+  const timerMin=parseInt(document.getElementById('mcq-timer').value)||10;
   if(!date||!title){toast('Date and title are required',true);return}
   if(!mcqQueue.length){toast('Add at least one question to the queue',true);return}
   const items=get('mcq'),editingId=window._editingMCQ;
   if(editingId){
     const idx=items.findIndex(i=>i.id===editingId);
-    if(idx!==-1){items[idx]={...items[idx],date,title,topic:document.getElementById('mcq-topic').value,questions:[...mcqQueue],ts:Date.now()};set('mcq',items);clearMcqSetForm();toast('✓ MCQ set updated!');renderAll()}
+    if(idx!==-1){items[idx]={...items[idx],date,title,topic:document.getElementById('mcq-topic').value,timerMin,questions:[...mcqQueue],ts:Date.now()};set('mcq',items);clearMcqSetForm();toast('✓ MCQ set updated!');renderAll()}
   }else{
-    items.unshift({id:uid(),date,title,topic:document.getElementById('mcq-topic').value,questions:[...mcqQueue],ts:Date.now()});
+    items.unshift({id:uid(),date,title,topic:document.getElementById('mcq-topic').value,timerMin,questions:[...mcqQueue],ts:Date.now()});
     set('mcq',items);clearMcqSetForm();toast('✓ MCQ set saved!');renderAll();
   }
 }
 function clearMcqSetForm(){
   document.getElementById('mcq-title').value='';mcqQueue=[];
+  document.getElementById('mcq-timer').value=10;
   document.getElementById('bulkInput').value='';clearMcqQForm();renderMcqQueue();window._editingMCQ=null;
 }
 function editMCQ(id){
   const item=get('mcq').find(i=>i.id===id);if(!item)return;
   document.getElementById('mcq-date').value=item.date;document.getElementById('mcq-title').value=item.title;
   document.getElementById('mcq-topic').value=item.topic||'';
+  document.getElementById('mcq-timer').value=item.timerMin||10;
   mcqQueue=[...(item.questions||[])];window._editingMCQ=id;
   showPage('mcq');renderMcqQueue();document.getElementById('mcq-title').scrollIntoView({behavior:'smooth',block:'center'});
   toast('Editing set &mdash; modify questions and click Save MCQ Set');
@@ -2112,15 +2352,30 @@ function deleteMCQ(id){if(!confirm('Delete this MCQ set?'))return;set('mcq',get(
 function renderMCQList(){
   const el=document.getElementById('mcqList');if(!el)return;
   const items=get('mcq');if(!items.length){el.innerHTML='<div class="empty">No MCQ sets saved yet.</div>';return}
-  el.innerHTML='<div class="items-list">'+items.map(i=>`
-    <div class="item-row">
-      <div class="item-body">
-        <div class="item-title">${i.title}</div>
-        <div class="item-meta"><span class="tag-date">${fmtDate(i.date)}</span><span class="tag-pill">${i.topic||'General'}</span><span>${(i.questions||[]).length} questions</span></div>
+  const byDate={};items.forEach(i=>{if(!byDate[i.date])byDate[i.date]=[];byDate[i.date].push(i)});
+  const dates=Object.keys(byDate).sort((a,b)=>b.localeCompare(a));
+  const todayStr=new Date().toISOString().split('T')[0];
+  el.innerHTML=dates.map((d,idx)=>{
+    const isToday=d===todayStr;const collapsed=idx>0;
+    return `<div class="adg">
+      <div class="adg-header" onclick="toggleAdminDateGroup(this)">
+        <span class="adg-arrow">${collapsed?'▸':'▾'}</span>
+        <span class="adg-date">${isToday?'🟢 Today &mdash; ':''}${fmtDate(d)}</span>
+        <span class="adg-count">${byDate[d].length} set${byDate[d].length>1?'s':''}</span>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="editMCQ('${i.id}')">Edit</button>
-      <button class="btn btn-danger btn-sm" onclick="deleteMCQ('${i.id}')">Delete</button>
-    </div>`).join('')+'</div>';
+      <div class="adg-body" style="display:${collapsed?'none':''}">
+        ${byDate[d].map(i=>`
+          <div class="item-row">
+            <div class="item-body">
+              <div class="item-title">${i.title}</div>
+              <div class="item-meta"><span class="tag-pill">${i.topic||'General'}</span><span>${(i.questions||[]).length} questions</span><span>${i.timerMin||10} min</span></div>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="editMCQ('${i.id}')">Edit</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteMCQ('${i.id}')">Delete</button>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
 }
 
 /* ── PDF ──────────────────────────────────────────────────────── */
