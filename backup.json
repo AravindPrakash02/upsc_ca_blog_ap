@@ -1,6 +1,47 @@
 {
   "ca": [
     {
+      "id": "mqm7sh4ojoh",
+      "date": "2026-06-20",
+      "topic": "Polity",
+      "importance": "high",
+      "title": "Walking on footpath is a fundamental right: SC",
+      "summary": "The <b>Supreme Court of India</b> has landmarked the right to walk on demarcated and well-maintained footpaths as a <b>Fundamental Right</b>, asserting it takes precedence over the movement of <b>motorised vehicles</b>. The judgment emphasizes that municipal authorities have an enforceable duty to provide safe pedestrian infrastructure, linking this right to broader constitutional freedoms.",
+      "keyPoints": "• <b>Fundamental Right to Walk</b> &mdash; The <b>Supreme Court</b> declared that walking on demarcated and well-maintained footpaths is a <b>Fundamental Right</b> that overrides the privilege of using <b>motorised vehicles</b>.\n• <b>Enforceable Duty</b> &mdash; If a road exists, there is a mandatory, enforceable duty for authorities to ensure a footpath is demarcated and maintained for pedestrians.\n• <b>Constitutional Guarantee</b> &mdash; The court interpreted <b>Article 19(1)(d)</b> (right to move freely throughout the territory of <b>India</b>) as encompassing the right to walk.\n• <b>Expanded Rights</b> &mdash; Walking is recognized as embodying expressional, congregational, and associational rights under <b>Article 19(1)(a)</b>, <b>Article 19(1)(b)</b>, and <b>Article 19(1)(c)</b>.\n• <b>Statutory Framework</b> &mdash; The court highlighted the urgent need for a statutory framework to define the rights of pedestrians and the responsibilities of duty-bearers.\n• <b>Urban Planning Failure</b> &mdash; Rapid urbanization and trade demands have relegated walking to an inconvenience, with authorities prioritizing motorways over pedestrian space.\n• <b>Elitism in Transport</b> &mdash; The court noted that the dominance of <b>motorised transportation</b> has pushed walkers aside, often treating them as a nuisance despite walking being a basic human activity.\n• <b>Judicial Compensation</b> &mdash; The court awarded compensation of over <b>₹11 lakh</b> to the parents of the deceased child, reinforcing the accountability of the state.\n• <b>Minimum Duty</b> &mdash; Providing a comfortable space for an easy and carefree walk is considered the 'minimum of the minimum' duty that a <b>Municipal Authority</b> owes to citizens.",
+      "whyInNews": "The ruling emerged from a compensation case involving the tragic death of a five-year-old boy who was killed by a truck while walking with his father, prompting the court to address the systemic neglect of pedestrian safety.",
+      "upscAngle": "Prelims: GS2 – Indian Constitution and Governance | Mains: GS2 – Fundamental Rights and Urban Infrastructure Policy.",
+      "link": "",
+      "imgUrl": "",
+      "imgUrls": [],
+      "ts": 1781951292600,
+      "sections": [
+        {
+          "type": "summary",
+          "content": "The <b>Supreme Court of India</b> has landmarked the right to walk on demarcated and well-maintained footpaths as a <b>Fundamental Right</b>, asserting it takes precedence over the movement of <b>motorised vehicles</b>. The judgment emphasizes that municipal authorities have an enforceable duty to provide safe pedestrian infrastructure, linking this right to broader constitutional freedoms."
+        },
+        {
+          "type": "whyInNews",
+          "content": "The ruling emerged from a compensation case involving the tragic death of a five-year-old boy who was killed by a truck while walking with his father, prompting the court to address the systemic neglect of pedestrian safety."
+        },
+        {
+          "type": "keyPoints",
+          "content": "• <b>Fundamental Right to Walk</b> &mdash; The <b>Supreme Court</b> declared that walking on demarcated and well-maintained footpaths is a <b>Fundamental Right</b> that overrides the privilege of using <b>motorised vehicles</b>.\n• <b>Enforceable Duty</b> &mdash; If a road exists, there is a mandatory, enforceable duty for authorities to ensure a footpath is demarcated and maintained for pedestrians.\n• <b>Constitutional Guarantee</b> &mdash; The court interpreted <b>Article 19(1)(d)</b> (right to move freely throughout the territory of <b>India</b>) as encompassing the right to walk.\n• <b>Expanded Rights</b> &mdash; Walking is recognized as embodying expressional, congregational, and associational rights under <b>Article 19(1)(a)</b>, <b>Article 19(1)(b)</b>, and <b>Article 19(1)(c)</b>.\n• <b>Statutory Framework</b> &mdash; The court highlighted the urgent need for a statutory framework to define the rights of pedestrians and the responsibilities of duty-bearers.\n• <b>Urban Planning Failure</b> &mdash; Rapid urbanization and trade demands have relegated walking to an inconvenience, with authorities prioritizing motorways over pedestrian space.\n• <b>Elitism in Transport</b> &mdash; The court noted that the dominance of <b>motorised transportation</b> has pushed walkers aside, often treating them as a nuisance despite walking being a basic human activity.\n• <b>Judicial Compensation</b> &mdash; The court awarded compensation of over <b>₹11 lakh</b> to the parents of the deceased child, reinforcing the accountability of the state.\n• <b>Minimum Duty</b> &mdash; Providing a comfortable space for an easy and carefree walk is considered the 'minimum of the minimum' duty that a <b>Municipal Authority</b> owes to citizens."
+        },
+        {
+          "type": "constitutional",
+          "content": "The judgment draws upon <b>Article 19</b> of the <b>Constitution of India</b>, which guarantees freedoms including speech (19(1)(a)), assembly (19(1)(b)), association (19(1)(c)), and movement (19(1)(d)). The court interprets these as being inextricably linked to the physical act of walking in public spaces."
+        },
+        {
+          "type": "wayForward",
+          "content": "Governments must shift from vehicle-centric urban planning to pedestrian-centric design. This requires creating a clear statutory framework that mandates the construction and maintenance of footpaths as a primary infrastructure requirement rather than an afterthought."
+        },
+        {
+          "type": "upscAngle",
+          "content": "Prelims: GS2 – Indian Constitution and Governance | Mains: GS2 – Fundamental Rights and Urban Infrastructure Policy."
+        }
+      ]
+    },
+    {
       "id": "mqkv37lo5lw",
       "date": "2026-06-19",
       "topic": "Science & Tech",
@@ -1215,5 +1256,5 @@
     "ctaTitle": "Start Your UPSC Preparation Today",
     "ctaSub": "Daily structured current affairs. Free. No login required. Updated every morning."
   },
-  "exported": "2026-06-20T10:26:07.946Z"
+  "exported": "2026-06-20T10:28:52.349Z"
 }
