@@ -164,6 +164,51 @@ button { font-family:inherit; cursor:pointer; }
   letter-spacing: -0.5px; line-height: 1.1;
 }
 
+/* ── SETTINGS SIDE NAV ──────────────────────────────────────────── */
+.settings-layout { display:grid; grid-template-columns: 220px 1fr; gap:1.5rem; align-items:start; }
+.settings-sidenav {
+  position: sticky; top: calc(var(--nav-h) + 1rem);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.settings-navitem {
+  background: none; border: 1px solid transparent;
+  text-align: left; padding: 9px 12px;
+  font-size: 0.78rem; color: var(--text-3);
+  border-radius: 7px;
+  font-family: 'DM Sans', sans-serif; font-weight: 500;
+  cursor: pointer; transition: all 0.14s;
+  display: flex; align-items: center; gap: 9px;
+  white-space: nowrap;
+}
+.settings-navitem:hover { color: var(--text-2); background: rgba(255,255,255,0.03); }
+.settings-navitem.active {
+  background: var(--gold-dim); color: var(--gold);
+  border-color: var(--gold-border); font-weight: 600;
+}
+.settings-navitem-num {
+  font-size: 0.68rem; opacity: 0.7;
+  font-family: monospace; flex-shrink: 0;
+  width: 16px; text-align: center;
+}
+.settings-section { display: none; }
+.settings-section.active { display: block; }
+.settings-main { min-width: 0; }
+@media (max-width: 900px) {
+  .settings-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .settings-sidenav {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .settings-sidenav::-webkit-scrollbar { display:none; }
+  .settings-navitem { white-space: nowrap; padding: 7px 12px; }
+}
+
 /* ── GLASS CARD ─────────────────────────────────────────────────── */
 .fcard {
   background: var(--bg-card);
@@ -1175,8 +1220,23 @@ Explanation: Article 14 guarantees equality before law.
     <div class="pg-head-title">Settings</div>
   </div>
 
+  <div class="settings-layout">
+    <div class="settings-sidenav" id="settingsSidenav">
+      <button class="settings-navitem active" data-target="identity" onclick="showSettingsSection('identity')"><span class="settings-navitem-num">①</span> Site Identity</button>
+      <button class="settings-navitem" data-target="why" onclick="showSettingsSection('why')"><span class="settings-navitem-num">①</span> Why Section</button>
+      <button class="settings-navitem" data-target="features" onclick="showSettingsSection('features')"><span class="settings-navitem-num">①</span> Features</button>
+      <button class="settings-navitem" data-target="mockup" onclick="showSettingsSection('mockup')"><span class="settings-navitem-num">①</span> Mockup &amp; CTA</button>
+      <button class="settings-navitem" data-target="footer" onclick="showSettingsSection('footer')"><span class="settings-navitem-num">②</span> Footer &amp; Contact</button>
+      <button class="settings-navitem" data-target="credentials" onclick="showSettingsSection('credentials')"><span class="settings-navitem-num">③</span> Admin Login</button>
+      <button class="settings-navitem" data-target="ai" onclick="showSettingsSection('ai')"><span class="settings-navitem-num">④</span> AI Settings</button>
+      <button class="settings-navitem" data-target="publish" onclick="showSettingsSection('publish')"><span class="settings-navitem-num">⑤</span> Publish</button>
+      <button class="settings-navitem" data-target="data" onclick="showSettingsSection('data')"><span class="settings-navitem-num">⑥</span> Data Management</button>
+    </div>
+
+    <div class="settings-main">
+
   <!-- ── 1. SITE IDENTITY ── -->
-  <div class="fcard">
+  <div class="fcard settings-section active" data-section="identity">
     <div class="fcard-head"><span class="fcard-head-title">① Site Identity &amp; Branding</span><span style="font-size:0.6rem;color:var(--text-2);font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px">Reflected on public site on next Publish</span></div>
     <div class="fg2">
       <div class="frow"><label>Site Name *</label><input type="text" id="brandName" placeholder="IAS Aspirants Parliament"></div>
@@ -1216,7 +1276,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 1B. WHY SECTION ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="why">
     <div class="fcard-head"><span class="fcard-head-title">① Why Section</span><span style="font-size:0.6rem;color:var(--text-2);font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px">The stats + editorial copy block</span></div>
     <div class="fg2">
       <div class="frow"><label>Big Number (left side)</label><input type="text" id="brandWhyNumber" placeholder="34+"></div>
@@ -1230,7 +1290,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 1C. FEATURES ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="features">
     <div class="fcard-head"><span class="fcard-head-title">① Features Section</span><span style="font-size:0.6rem;color:var(--text-2);font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px">The 6 feature cards</span></div>
     <div class="frow"><label>Section Title (use * for gold italic word)</label><input type="text" id="brandFeatTitle" placeholder="Everything a Serious Aspirant *Needs"></div>
     <div class="frow"><label>Section Subtitle</label><input type="text" id="brandFeatSub" placeholder="Structured content, daily practice, and UPSC-focused analysis — all in one place."></div>
@@ -1245,7 +1305,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 1D. MOCKUP + CTA ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="mockup">
     <div class="fcard-head"><span class="fcard-head-title">① Mockup &amp; CTA Section</span></div>
     <div class="frow"><label>Mockup Section Label (eyebrow)</label><input type="text" id="brandMockupLabel" placeholder="How It Works"></div>
     <div class="frow"><label>Mockup Quote (use * for gold word)</label><input type="text" id="brandMockupQuote" placeholder="Read the news once. *Understand it for life."></div>
@@ -1260,7 +1320,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 2. FOOTER & CONTACT ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="footer">
     <div class="fcard-head"><span class="fcard-head-title">② Footer &amp; Contact Links</span><span style="font-size:0.6rem;color:var(--text-2);font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px">Shown in site footer</span></div>
     <div class="fg2">
       <div class="frow"><label>Footer Line 1</label><input type="text" id="brandFooter1" placeholder="Curated daily for UPSC CSE aspirants."></div>
@@ -1285,7 +1345,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 3. ADMIN CREDENTIALS ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="credentials">
     <div class="fcard-head"><span class="fcard-head-title">③ Admin Credentials</span><span style="font-size:0.6rem;color:var(--red);font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px">Keep safe &mdash; share only with your client</span></div>
     <div class="fg2">
       <div class="frow"><label>Username *</label><input type="text" id="credUser" placeholder="admin"></div>
@@ -1299,7 +1359,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 4. AI SETTINGS ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="ai">
     <div class="fcard-head"><span class="fcard-head-title">④ AI Settings</span><span style="font-size:0.6rem;color:var(--text-2);font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px">Powers auto-format from text &amp; images</span></div>
     <div class="api-key-note">
       <b style="color:var(--text)">Gemini (Google):</b> Free key at <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a> &mdash; 1,500 req/day, no credit card.<br>
@@ -1346,7 +1406,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 5. PUBLISH ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="publish">
     <div class="fcard-head"><span class="fcard-head-title">⑤ Publish Settings</span></div>
 
     <!-- Cloudflare -->
@@ -1433,7 +1493,7 @@ Explanation: Article 14 guarantees equality before law.
   </div>
 
   <!-- ── 6. DATA MANAGEMENT ── -->
-  <div class="fcard">
+  <div class="fcard settings-section" data-section="data">
     <div class="fcard-head"><span class="fcard-head-title">⑥ Data Management</span></div>
     <div style="font-size:0.78rem;color:var(--text-2);line-height:1.7;margin-bottom:1rem">
       Export <code style="background:var(--bg-3);padding:1px 6px;border-radius:3px;font-size:0.7rem;color:var(--gold)">backup.json</code> to back up all content.
@@ -1459,6 +1519,9 @@ Explanation: Article 14 guarantees equality before law.
     </div>
   </div>
 
+    </div><!-- /.settings-main -->
+  </div><!-- /.settings-layout -->
+
 </div>
 
 </div><!-- /wrap -->
@@ -1472,6 +1535,14 @@ function toggleAdminDateGroup(header){
   const isCollapsed=body.style.display==='none';
   body.style.display=isCollapsed?'':'none';
   if(arrow)arrow.textContent=isCollapsed?'▾':'▸';
+}
+
+function showSettingsSection(target){
+  document.querySelectorAll('.settings-section').forEach(s=>s.classList.toggle('active', s.dataset.section===target));
+  document.querySelectorAll('.settings-navitem').forEach(b=>b.classList.toggle('active', b.dataset.target===target));
+  // Scroll the chosen section into view if the user was scrolled down (relevant on mobile)
+  const section=document.querySelector(`.settings-section[data-section="${target}"]`);
+  if(section && window.innerWidth<=900) section.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 /* IMG URL MANAGER */
@@ -1735,7 +1806,7 @@ function setTodayDates(){
 /* ── CA AUTO-FORMAT ───────────────────────────────────────────── */
 async function autoFormat(){
   const apiKey=getApiKey();
-  if(!apiKey){toast('Add your Gemini API key in Settings first',true);showPage('settings');return}
+  if(!apiKey){toast('Add your Gemini API key in Settings first',true);showPage('settings');showSettingsSection('ai');return}
   const isImageMode=document.getElementById('tabImage').classList.contains('active')&&window._imgList.length>0;
   const raw=document.getElementById('rawInput').value.trim();
   const imgData=window._imgList.length?window._imgList[0].base64:null;
@@ -1825,7 +1896,7 @@ Return ONLY the JSON object starting with { and ending with }.`;
     const parsed=safeParseJSON(text);showPreview(parsed);toast('✓ AI formatted successfully!');
   }catch(e){
     console.error(e);
-    if(e.message==='NO_KEY'){toast('Add your Gemini API key in Settings first',true);showPage('settings')}
+    if(e.message==='NO_KEY'){toast('Add your Gemini API key in Settings first',true);showPage('settings');showSettingsSection('ai')}
     else if(e.message.includes('API_KEY_INVALID')||e.message.includes('not valid'))toast('Invalid API key &mdash; check Settings',true);
     else toast('Error: '+e.message,true);
   }finally{btn.disabled=false;spinner.style.display='none';btnText.textContent='✦ Auto-Format with AI'}
@@ -2094,7 +2165,7 @@ function clearQuizQueue(){quizQueue=[];renderQuizQueue()}
 async function bulkParseQuiz(){
   const raw=document.getElementById('quizBulkInput').value.trim();
   if(raw.length<30){toast('Paste some quiz questions first',true);return}
-  const apiKey=getApiKey();if(!apiKey){toast('Add Gemini API key in Settings',true);showPage('settings');return}
+  const apiKey=getApiKey();if(!apiKey){toast('Add Gemini API key in Settings',true);showPage('settings');showSettingsSection('ai');return}
   const btn=document.getElementById('quizBulkParseBtn'),spinner=document.getElementById('quizBulkSpinner'),btnText=document.getElementById('quizBulkBtnText');
   btn.disabled=true;spinner.style.display='block';btnText.textContent='Parsing…';
   const prompt=`Parse the following quiz question list into a JSON array. Each object must have: q (question string), opts (array of option strings), correct (0-indexed integer of correct answer), exp (explanation string).\n\nReturn ONLY a raw JSON array. No markdown, no backticks, no extra text.\n\n${raw}`;
@@ -2286,7 +2357,7 @@ function clearMcqQueue(){mcqQueue=[];renderMcqQueue()}
 async function bulkParseMCQ(){
   const raw=document.getElementById('bulkInput').value.trim();
   if(raw.length<30){toast('Paste some MCQ questions first',true);return}
-  const apiKey=getApiKey();if(!apiKey){toast('Add Gemini API key in Settings',true);showPage('settings');return}
+  const apiKey=getApiKey();if(!apiKey){toast('Add Gemini API key in Settings',true);showPage('settings');showSettingsSection('ai');return}
   const btn=document.getElementById('bulkParseBtn'),spinner=document.getElementById('bulkSpinner'),btnText=document.getElementById('bulkBtnText');
   btn.disabled=true;spinner.style.display='block';btnText.textContent='Parsing…';
   const prompt=`Parse the following MCQ list into a JSON array. Each object must have: q (question string), opts (array of option strings), correct (0-indexed integer of correct answer), exp (explanation string).\n\nReturn ONLY a raw JSON array. No markdown, no backticks, no extra text.\n\n${raw}`;
@@ -2464,10 +2535,10 @@ async function publishToCloudflare(){
   const log=document.getElementById('publishLog');
 
   if(!workerUrl){
-    toast('Add your Worker URL in Settings first',true);showPage('page-settings');return;
+    toast('Add your Worker URL in Settings first',true);showPage('page-settings');showSettingsSection('publish');return;
   }
   if(!publishKey){
-    toast('Add your Publish Key in Settings first',true);showPage('page-settings');return;
+    toast('Add your Publish Key in Settings first',true);showPage('page-settings');showSettingsSection('publish');return;
   }
 
   btn.disabled=true;spinner.style.display='block';btnText.innerHTML='Deploying...';
@@ -2930,8 +3001,22 @@ function loadIndexFromFile(e){
   if(!file.name.endsWith('.html')){toast('Please select an HTML file',true);return}
   const reader=new FileReader();
   reader.onload=ev=>{
-    window._uploadedIndexHTML=ev.target.result;
-    const kb=Math.round(ev.target.result.length/1024);
+    const content=ev.target.result;
+    // Sanity check — the picker says "Select index.html" but accepts any .html file.
+    // Easy to accidentally pick admin.html. Detect that via the <title> tag and refuse,
+    // since pushing admin.html as index.html to GitHub silently corrupts the live site.
+    const titleMatch=content.match(/<title[^>]*>([^<]*)<\/title>/i);
+    const title=titleMatch?titleMatch[1].trim():'';
+    const looksLikeAdmin=/admin/i.test(title)
+      || content.indexOf('class="anav"')!==-1
+      || content.indexOf('id="page-dashboard"')!==-1;
+    if(looksLikeAdmin){
+      toast('That looks like admin.html, not the public site. Please pick the public site\u2019s index.html instead.',true);
+      e.target.value='';
+      return;
+    }
+    window._uploadedIndexHTML=content;
+    const kb=Math.round(content.length/1024);
     document.getElementById('indexFileStatus').innerHTML=`<span style="color:var(--green)">✓ ${file.name} loaded (${kb}KB)</span>`;
     document.getElementById('indexFilePreview').style.display='block';
     document.getElementById('indexFilePreview').textContent=`✓ Ready to publish: ${file.name} (${kb}KB) &mdash; click Publish to GitHub to push it live`;
