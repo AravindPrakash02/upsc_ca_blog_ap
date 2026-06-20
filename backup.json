@@ -1029,9 +1029,145 @@
       "exp": "The Mozambique Channel lies between Madagascar and Mozambique. It is the world's widest channel and an important route for currents, shipping and marine biodiversity in the western Indian Ocean.",
       "topic": "Environment",
       "ts": 1781029417071
+    },
+    {
+      "id": "mql1wtnt9oh",
+      "date": "2026-06-19",
+      "topic": "Polity",
+      "q": "Q1. Regarding the \"Right to walk on footpaths\", recently in the news, consider the following statements:The Supreme Court has declared the freedom to walk on demarcated and well-maintained footpaths as a fundamental right.  This right is explicitly interpreted as forming a part of the freedom to move freely throughout the territory of India under Article 19(1)(d).  Which of the statements given above is/are correct?",
+      "opts": [
+        "1 Only",
+        "2 Only",
+        "1 and 2",
+        "None"
+      ],
+      "correct": 2,
+      "exp": "On June 19, 2026, the Supreme Court delivered a landmark judgment declaring that the right to walk on a designated footpath forms part of the fundamental right to move freely under Article 19(1)(d) of the Constitution. The court held that if a road exists, there is an enforceable duty to ensure demarcated footpaths, overriding the privilege of motorized vehicles.",
+      "ts": 1781929741781
     }
   ],
-  "mcq": [],
+  "mcq": [
+    {
+      "id": "mql1synjq4e",
+      "date": "2026-06-19",
+      "title": "Current Affairs MCQ Practise June 19",
+      "topic": "Mixed / General",
+      "questions": [
+        {
+          "q": "Regarding the \"Right to walk on footpaths\", recently in the news, consider the following statements: The Supreme Court has declared the freedom to walk on demarcated and well-maintained footpaths as a fundamental right. This right is explicitly interpreted as forming a part of the freedom to move freely throughout the territory of India under Article 19(1)(d). Which of the statements given above is/are correct?",
+          "opts": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+          ],
+          "correct": 2,
+          "exp": "On June 19, 2026, the Supreme Court delivered a landmark judgment declaring that the right to walk on a designated footpath forms part of the fundamental right to move freely under Article 19(1)(d) of the Constitution. The court held that if a road exists, there is an enforceable duty to ensure demarcated footpaths, overriding the privilege of motorized vehicles."
+        },
+        {
+          "q": "Consider the following statements regarding Section 69A of the Information Technology Act, 2000: It empowers the Union government to block public access to any information strictly on the grounds of the sovereignty and integrity of India and friendly relations with foreign states. Orders issued under this section are subject to the proportionality test. The Delhi High Court recently upheld the temporary blocking of Telegram under this section to prevent examination paper leaks. How many of the above statements are correct?",
+          "opts": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+          ],
+          "correct": 2,
+          "exp": "Section 69A empowers the Centre to block access to information on specific grounds like the sovereignty, integrity, and defense of India, friendly relations with foreign states, and public order. Courts have laid down proportionality tests for such restrictions. Today, the Delhi High Court dismissed Telegram's plea against its temporary ban (ahead of the NEET-UG re-test), ruling that the government followed due process and used the \"least restrictive measure\" to curb illicit activities."
+        },
+        {
+          "q": "With reference to the newly launched 'ARIFAC' framework, consider the following statements: It is a national industry platform aimed at strengthening India's Anti-Money Laundering (AML) and Combating the Financing of Terrorism (CFT) ecosystem. The secretariat of ARIFAC is managed entirely by the Financial Intelligence Unit-India (FIU-IND). Which of the statements given above is/are correct?",
+          "opts": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+          ],
+          "correct": 0,
+          "exp": "India’s financial sector launched the 'Alliance of Reporting Entities in AML/CFT (ARIFAC)' to combat rising financial crimes. However, Statement 2 is incorrect because the secretariat is managed by the Payments Council of India (PCI) and the Fintech Convergence Council (FCC), while FIU-IND only participates as an observer."
+        },
+        {
+          "q": "Consider the following statements regarding the \"Namo Cities\" project: The project aims to develop greenfield cities exclusively across India's coastal states to boost maritime trade. The initiative was recently approved by the National Capital Region Planning Board (NCRPB). Which of the statements given above is/are correct?",
+          "opts": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+          ],
+          "correct": 1,
+          "exp": "Statement 1 is incorrect. The \"Namo Cities\" project aims to develop four greenfield cities exclusively within the National Capital Region (NCR) — one each in Delhi, Haryana, Uttar Pradesh, and Rajasthan. It was approved by the NCRPB at an estimated cost of ₹5,000 crore."
+        },
+        {
+          "q": "Which of the following states has launched \"Mission Samudra\" with an allocation of ₹400 crore to develop itself into a major player in the global maritime sector?",
+          "opts": [
+            "Gujarat",
+            "Maharashtra",
+            "Kerala",
+            "Tamil Nadu"
+          ],
+          "correct": 2,
+          "exp": "Kerala Chief Minister VD Satheesan presented the revised state budget for 2026-27 today. A key announcement was the launch of \"Mission Samudra,\" a ₹400 crore initiative aimed at preparing a comprehensive maritime policy, focusing on non-major ports, and establishing an international maritime museum."
+        },
+        {
+          "q": "Consider the following statements regarding the Green Hydrogen Certification Scheme of India (GHCI): The GHCI portal was launched by the Ministry of New and Renewable Energy (MNRE). It aims to provide a digital platform for transparent certification, verification, and regulatory compliance for green hydrogen. Which of the statements given above is/are correct?",
+          "opts": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+          ],
+          "correct": 2,
+          "exp": "Union Minister Pralhad Joshi (MNRE) launched the Green Hydrogen Certification Portal of India during a national workshop in New Delhi. The digital platform will enable end-to-end transparent certification and regulatory compliance for the green hydrogen sector."
+        },
+        {
+          "q": "The inaugural edition of \"Bharat Innovates 2026\", an event recently inaugurated by the Indian Prime Minister, was organized under a bilateral 'Year of Innovation' with which of the following countries?",
+          "opts": [
+            "United States",
+            "France",
+            "Israel",
+            "Germany"
+          ],
+          "correct": 1,
+          "exp": "PM Narendra Modi and French President Emmanuel Macron inaugurated \"Bharat Innovates 2026\" at the Palais des Expositions de Nice in France. The three-day event was organized by the Ministry of Education under the India-France Year of Innovation."
+        },
+        {
+          "q": "The Supreme Court recently directed the creation of a \"Young Lawyers' Professional Assistance Fund\" in every state. What is the primary objective of this directive?",
+          "opts": [
+            "To fund pro-bono litigation for marginalized communities.",
+            "To prevent a \"brain drain\" of promising young lawyers leaving litigation due to severe financial hardships.",
+            "To provide scholarships for students pursuing legal education at foreign universities.",
+            "To digitize lower courts and provide technological resources to junior advocates."
+          ],
+          "correct": 1,
+          "exp": "Observing that the legal profession risks a “brain drain” if struggling young lawyers abandon litigation for more financially stable careers, the Supreme Court ordered the creation of this fund. The bench noted that initial years of practice impose massive financial hardships, particularly on first-generation lawyers."
+        },
+        {
+          "q": "According to the Global Startup Ecosystem Report (GSER) 2026 released recently, which Indian city has secured a spot among the top 15 global startup ecosystems?",
+          "opts": [
+            "New Delhi",
+            "Mumbai",
+            "Bengaluru",
+            "Hyderabad"
+          ],
+          "correct": 2,
+          "exp": "Startup Genome, in partnership with the Global Entrepreneurship Network, released the Global Startup Ecosystem Report (GSER) 2026 today. Bengaluru ranked 15th among the top 40 global startup ecosystems, reinforcing its status as India's premier tech and startup hub."
+        },
+        {
+          "q": "With reference to the newly released QS World University Rankings 2027, consider the following statements: Indian Institute of Technology (IIT) Delhi is the highest-ranked Indian institution in the latest edition. IIT Delhi breached the top 100 global rankings for the first time. Which of the statements given above is/are correct?",
+          "opts": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+          ],
+          "correct": 0,
+          "exp": "In the QS World University Rankings 2027 released today, IIT Delhi emerged as the top-ranked Indian institute. However, Statement 2 is incorrect because it ranked 118th globally (improving five places from 123rd last year), meaning it has not yet entered the top 100."
+        }
+      ],
+      "ts": 1781931262979,
+      "timerMin": 1
+    }
+  ],
   "pdf": [],
   "branding": {
     "name": "IAS Aspirants Parliament",
@@ -1082,5 +1218,5 @@
     "ctaTitle": "Start Your UPSC Preparation Today",
     "ctaSub": "Daily structured current affairs. Free. No login required. Updated every morning."
   },
-  "exported": "2026-06-19T14:10:00.193Z"
+  "exported": "2026-06-20T09:37:53.886Z"
 }
