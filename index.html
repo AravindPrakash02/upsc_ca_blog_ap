@@ -1196,7 +1196,7 @@ textarea.contact-input{resize:vertical;min-height:96px;line-height:1.6}
           <div class="brand-wordmark"><span id="footSiteName">Aspirants&rsquo; Parliament</span></div>
         </div>
         <div class="footer-tagline">By Aspirants. For Aspirants.</div>
-        <div class="footer-description">Curated daily current affairs, MCQ practice, and quizzes for serious UPSC CSE aspirants.</div>
+        <div class="footer-description" id="footerDescription">Curated daily current affairs, MCQ practice, and quizzes for serious UPSC CSE aspirants.</div>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
@@ -1246,7 +1246,6 @@ textarea.contact-input{resize:vertical;min-height:96px;line-height:1.6}
       <div class="footer-copyright" id="footerCopyright">&copy; <span id="footYear"></span> <span class="js-foot-sitename">Aspirants&rsquo; Parliament</span>. All rights reserved.</div>
     </div>
   </div>
-<div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;justify-content:center;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.06)"><a href="IAS Parliament" target="_blank" style="color:#9ca3af;font-size:0.78rem;text-decoration:none">Telegram</a><a href="tel:+9199999999" style="color:#9ca3af;font-size:0.78rem;text-decoration:none">+9199999999</a></div>
 </footer>
 
 
@@ -3284,7 +3283,12 @@ function applyRuntimeBranding(b){
   if(b.copyright){const fc=document.getElementById('footerCopyright');if(fc)fc.innerHTML=b.copyright;}
 
   // Footer text
-  if(b.footer1||b.footer2){const ft=document.getElementById('footerText');if(ft)ft.innerHTML=(b.footer1||'')+'<br>'+(b.footer2||'');}
+  if(b.footer1||b.footer2){
+    const ft=document.getElementById('footerText');
+    if(ft) ft.innerHTML=(b.footer1||'')+'<br>'+(b.footer2||'');
+    const fd=document.getElementById('footerDescription');
+    if(fd) fd.textContent = b.footer1 || '';
+  }
 
   // Why section
   if(b.whyHeading) setText('.why-heading',b.whyHeading);
@@ -3328,11 +3332,9 @@ function applyRuntimeBranding(b){
     const mq=document.querySelector('.mockup-quote');
     if(mq){const html=b.mockupQuote.replace(/\*([^*]+)/,'<span>$1</span>');mq.innerHTML='&ldquo;'+html+'&rdquo;';}
   }
-  if(b.mockupBody1||b.mockupBody2){
-    const mb=document.querySelectorAll('.mockup-body');
-    if(mb[0]&&b.mockupBody1)mb[0].textContent=b.mockupBody1;
-    if(mb[1]&&b.mockupBody2)mb[1].textContent=b.mockupBody2;
-  }
+  const mb=document.querySelectorAll('.mockup-body');
+  if(mb[0]) mb[0].textContent = b.mockupBody1 || '';
+  if(mb[1]) mb[1].textContent = b.mockupBody2 || '';
 
   // CTA section
   if(b.ctaTitle) setText('.cta-title',b.ctaTitle);
